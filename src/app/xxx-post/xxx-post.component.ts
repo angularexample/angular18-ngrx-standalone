@@ -4,12 +4,16 @@ import {XxxPost} from "./xxx-post.types";
 import {XxxPostFacadeService} from "./xxx-post-facade.service";
 import {XxxContentFacadeService} from "../xxx-common/xxx-content/xxx-content-facade.service";
 import {XxxContent} from "../xxx-common/xxx-content/xxx-content.types";
+import { AsyncPipe } from '@angular/common';
+import { XxxContentComponent } from '../xxx-common/xxx-content/xxx-content.component';
 
 @Component({
-  selector: 'xxx-post',
-  templateUrl: './xxx-post.component.html',
-  styleUrl: './xxx-post.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'xxx-post',
+    templateUrl: './xxx-post.component.html',
+    styleUrl: './xxx-post.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [XxxContentComponent, AsyncPipe]
 })
 export class XxxPostComponent {
   contentKey: string = 'post';

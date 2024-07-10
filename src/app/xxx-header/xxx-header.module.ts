@@ -4,11 +4,11 @@ import {RouterLinkActive, RouterLink} from "@angular/router";
 
 
 @NgModule({
-    declarations: [XxxHeaderComponent],
-  imports: [
-    RouterLink,
-    RouterLinkActive
-  ],
+    imports: [
+        RouterLink,
+        RouterLinkActive,
+        XxxHeaderComponent
+    ],
     exports: [
         XxxHeaderComponent
     ]

@@ -2,6 +2,8 @@ import {ChangeDetectionStrategy, Component, ContentChild, Input, OnInit, Templat
 import {Observable, tap} from "rxjs";
 import {RouteConfigLoadEnd, RouteConfigLoadStart, Router} from "@angular/router";
 import {XxxLoadingService} from "./xxx-loading.service";
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { NgTemplateOutlet, AsyncPipe } from '@angular/common';
 
 /*
 To turn off loading for certain http requests, set the context as in this example
@@ -21,10 +23,12 @@ add the attribute to the loading element as in this example
     },
  */
 @Component({
-  selector: 'xxx-loading',
-  templateUrl: './xxx-loading.component.html',
-  styleUrl: './xxx-loading.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'xxx-loading',
+    templateUrl: './xxx-loading.component.html',
+    styleUrl: './xxx-loading.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgTemplateOutlet, MatProgressSpinner, AsyncPipe]
 })
 export class XxxLoadingComponent implements OnInit {
   @ContentChild("loading") customLoadingIndicator: TemplateRef<any> | null = null;

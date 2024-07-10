@@ -6,16 +6,16 @@ import {CommonModule} from "@angular/common";
 
 
 @NgModule({
-  declarations: [XxxLoadingComponent],
-  imports: [
-    CommonModule,
-    MatProgressSpinnerModule,
-    RouterLink,
-    RouterLinkActive
-  ],
-  exports: [
-    XxxLoadingComponent
-  ]
+    imports: [
+        CommonModule,
+        MatProgressSpinnerModule,
+        RouterLink,
+        RouterLinkActive,
+        XxxLoadingComponent
+    ],
+    exports: [
+        XxxLoadingComponent
+    ]
 })
 export class XxxLoadingModule {
 }

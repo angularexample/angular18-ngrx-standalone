@@ -6,16 +6,16 @@ import {XxxHomeComponent} from "./xxx-home.component";
 import {XxxHomeRoutingModule} from "./xxx-home-routing.module";
 
 @NgModule({
-  declarations: [XxxHomeComponent],
-  imports: [
-    AsyncPipe,
-    NgIf,
-    RouterLink,
-    RouterLinkActive,
-    XxxCommonModule,
-    XxxHomeRoutingModule,
-  ],
-  exports: [XxxHomeComponent]
+    imports: [
+        AsyncPipe,
+        NgIf,
+        RouterLink,
+        RouterLinkActive,
+        XxxCommonModule,
+        XxxHomeRoutingModule,
+        XxxHomeComponent,
+    ],
+    exports: [XxxHomeComponent]
 })
 export class XxxHomeModule {
 }

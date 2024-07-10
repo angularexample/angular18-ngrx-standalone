@@ -9,20 +9,18 @@ import {XxxPostStateModule} from "./xxx-post.state.module";
 import {XxxPostRoutingModule} from "./xxx-post-routing.module";
 
 @NgModule({
-  declarations: [
-    XxxPostComponent,
-    XxxPostEditComponent
-  ],
-  imports: [
-    AsyncPipe,
-    ReactiveFormsModule,
-    XxxCommonModule,
-    XxxPostStateModule,
-    XxxPostRoutingModule
-  ],
-  providers: [
-    provideHttpClient(withInterceptorsFromDi())
-  ]
+    imports: [
+        AsyncPipe,
+        ReactiveFormsModule,
+        XxxCommonModule,
+        XxxPostStateModule,
+        XxxPostRoutingModule,
+        XxxPostComponent,
+        XxxPostEditComponent
+    ],
+    providers: [
+        provideHttpClient(withInterceptorsFromDi())
+    ]
 })
 export class XxxPostModule {
 }

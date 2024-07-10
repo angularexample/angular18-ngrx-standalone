@@ -1,12 +1,15 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {XxxContentFacadeService} from "./xxx-content-facade.service";
+import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'xxx-content',
-  templateUrl: './xxx-content.component.html',
-  styleUrl: './xxx-content.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'xxx-content',
+    templateUrl: './xxx-content.component.html',
+    styleUrl: './xxx-content.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [AsyncPipe]
 })
 export class XxxContentComponent implements OnInit {
   @Input({ required: true }) contentKey!: string;

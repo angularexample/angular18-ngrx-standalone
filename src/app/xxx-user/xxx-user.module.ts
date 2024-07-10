@@ -7,14 +7,14 @@ import {XxxUserRoutingModule} from "./xxx-user-routing.module";
 import {XxxUserStateModule} from "./xxx-user.state.module";
 
 @NgModule({
-  declarations: [XxxUserComponent],
-  imports: [
-    AsyncPipe,
-    XxxCommonModule,
-    XxxUserRoutingModule,
-    XxxUserStateModule,
-  ],
-  providers: [provideHttpClient(withInterceptorsFromDi())]
+    imports: [
+        AsyncPipe,
+        XxxCommonModule,
+        XxxUserRoutingModule,
+        XxxUserStateModule,
+        XxxUserComponent,
+    ],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class XxxUserModule {
 }

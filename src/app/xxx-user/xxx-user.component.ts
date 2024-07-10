@@ -4,12 +4,16 @@ import {XxxContent} from "../xxx-common/xxx-content/xxx-content.types";
 import {XxxContentFacadeService} from "../xxx-common/xxx-content/xxx-content-facade.service";
 import {XxxUser} from "./xxx-user.types";
 import {XxxUserFacadeService} from "./xxx-user-facade.service";
+import { AsyncPipe } from '@angular/common';
+import { XxxContentComponent } from '../xxx-common/xxx-content/xxx-content.component';
 
 @Component({
-  selector: 'app-xxx-user',
-  templateUrl: './xxx-user.component.html',
-  styleUrl: './xxx-user.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-xxx-user',
+    templateUrl: './xxx-user.component.html',
+    styleUrl: './xxx-user.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [XxxContentComponent, AsyncPipe]
 })
 export class XxxUserComponent {
   contentKey: string = 'user';

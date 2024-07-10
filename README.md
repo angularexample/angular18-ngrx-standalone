@@ -74,3 +74,9 @@ https://jsonplaceholder.typicode.com/guide/
 
 See the HTTP PUT example in the guide.
 
+## Convert Modules App to Standalone
+
+Use the Angular migration script to convert the existing module based app to standalone.
+
+https://angular.dev/reference/migrations/standalone
+

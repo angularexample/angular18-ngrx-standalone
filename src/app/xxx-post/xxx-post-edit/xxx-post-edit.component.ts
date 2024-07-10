@@ -1,17 +1,21 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {debounceTime, distinctUntilChanged, Observable} from "rxjs";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {XxxContent} from "../../xxx-common/xxx-content/xxx-content.types";
 import {XxxContentFacadeService} from "../../xxx-common/xxx-content/xxx-content-facade.service";
 import {XxxPost, xxxPostFormDataInitial} from "../xxx-post.types";
 import {XxxPostFacadeService} from "../xxx-post-facade.service";
+import { AsyncPipe } from '@angular/common';
+import { XxxContentComponent } from '../../xxx-common/xxx-content/xxx-content.component';
 
 @Component({
-  selector: 'xxx-post-edit',
-  templateUrl: './xxx-post-edit.component.html',
-  styleUrl: './xxx-post-edit.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'xxx-post-edit',
+    templateUrl: './xxx-post-edit.component.html',
+    styleUrl: './xxx-post-edit.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [XxxContentComponent, ReactiveFormsModule, AsyncPipe]
 })
 export class XxxPostEditComponent {
   contentKey: string = 'post-edit';

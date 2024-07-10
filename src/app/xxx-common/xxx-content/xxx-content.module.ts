@@ -5,13 +5,13 @@ import {XxxContentComponent} from "./xxx-content.component";
 import {XxxContentStateModule} from "./xxx-content.state.module";
 
 @NgModule({
-  declarations: [XxxContentComponent],
-  exports: [XxxContentComponent],
-  imports: [
-    AsyncPipe,
-    XxxContentStateModule
-  ],
-  providers: [provideHttpClient(withInterceptorsFromDi())]
+    exports: [XxxContentComponent],
+    imports: [
+        AsyncPipe,
+        XxxContentStateModule,
+        XxxContentComponent
+    ],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class XxxContentModule {
 }
