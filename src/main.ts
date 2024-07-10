@@ -8,22 +8,8 @@ import {provideAnimations} from '@angular/platform-browser/animations';
 import {bootstrapApplication, BrowserModule} from '@angular/platform-browser';
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {provideRouter, Routes} from "@angular/router";
-
-const routes: Routes = [
-    {
-        path: '',
-        loadChildren: () => import('./app/xxx-home/xxx-home.module').then(m => m.XxxHomeModule)
-    },
-    {
-        path: 'user',
-        loadChildren: () => import('./app/xxx-user/xxx-user.module').then(m => m.XxxUserModule)
-    },
-    {
-        path: 'post',
-        loadChildren: () => import('./app/xxx-post/xxx-post.module').then(m => m.XxxPostModule)
-    }
-];
+import {provideRouter} from "@angular/router";
+import {appRoutes} from "./app/app.routes";
 
 if (environment.production) {
     enableProdMode();
@@ -46,7 +32,7 @@ bootstrapApplication(AppComponent, {
         provideAnimationsAsync(),
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations(),
-        provideRouter(routes)
+        provideRouter(appRoutes)
     ]
 })
     .catch(err => console.error(err));
