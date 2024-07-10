@@ -11,6 +11,6 @@ export const appRoutes: Routes = [
     },
     {
         path: 'post',
-        loadChildren: () => import('./xxx-post/xxx-post.module').then(m => m.XxxPostModule)
+        loadChildren: () => import('./xxx-post/xxx-post.routes').then(m => m.xxxPostRoutes)
     }
 ];
