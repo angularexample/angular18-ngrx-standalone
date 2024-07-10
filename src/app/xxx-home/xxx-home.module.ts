@@ -1,9 +1,9 @@
 import {AsyncPipe, NgIf} from "@angular/common";
 import {NgModule} from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
-import {XxxCommonModule} from "../xxx-common/xxx-common.module";
 import {XxxHomeComponent} from "./xxx-home.component";
 import {XxxHomeRoutingModule} from "./xxx-home-routing.module";
+import {XxxContentModule} from "../xxx-common/xxx-content/xxx-content.module";
 
 @NgModule({
     imports: [
@@ -11,9 +11,9 @@ import {XxxHomeRoutingModule} from "./xxx-home-routing.module";
         NgIf,
         RouterLink,
         RouterLinkActive,
-        XxxCommonModule,
         XxxHomeRoutingModule,
         XxxHomeComponent,
+        XxxContentModule
     ],
     exports: [XxxHomeComponent]
 })

@@ -8,28 +8,30 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreModule} from '@ngrx/store';
-import {XxxCommonModule} from "./xxx-common/xxx-common.module";
+import {XxxLoadingComponent} from "./xxx-common/xxx-loading/xxx-loading.component";
+import {XxxHeaderComponent} from "./xxx-header/xxx-header.component";
 
 
 @NgModule({
   declarations: [AppComponent],
   bootstrap: [AppComponent],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    EffectsModule.forRoot([]),
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({
-        maxAge: 25, // Retains last 25 states
-        logOnly: !isDevMode(), // Restrict extension to log-only mode
-        autoPause: true, // Pauses recording actions and state changes when the extension window is not open
-        trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
-        traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
-        connectInZone: true // If set to true, the connection is established within the Angular zone
-    }),
-    XxxCommonModule,
-],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        EffectsModule.forRoot([]),
+        StoreModule.forRoot({}, {}),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+            logOnly: !isDevMode(), // Restrict extension to log-only mode
+            autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+            trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
+            traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
+            connectInZone: true // If set to true, the connection is established within the Angular zone
+        }),
+        XxxLoadingComponent,
+        XxxHeaderComponent,
+    ],
   providers: [
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi()),
