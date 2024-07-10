@@ -80,3 +80,6 @@ Use the Angular migration script to convert the existing module based app to sta
 
 https://angular.dev/reference/migrations/standalone
 
+Move redux registration from modules to route providers.
+
+Lazy load routes instead of modules.
