@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
-import {XxxAlertModule} from "./xxx-alert/xxx-alert.module";
+
 import {XxxContentComponent} from "./xxx-content/xxx-content.component";
 import {XxxContentModule} from "./xxx-content/xxx-content.module";
 import {XxxLoadingComponent} from "./xxx-loading/xxx-loading.component";
-import {XxxLoadingModule} from "./xxx-loading/xxx-loading.module";
+
 
 @NgModule({
   exports: [
@@ -11,10 +11,8 @@ import {XxxLoadingModule} from "./xxx-loading/xxx-loading.module";
     XxxLoadingComponent
   ],
   imports: [
-    XxxAlertModule,
-    XxxContentModule,
-    XxxLoadingModule
-  ]
+    XxxContentModule
+]
 })
 export class XxxCommonModule {
 }
