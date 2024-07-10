@@ -1,0 +1,9 @@
+@if (isContentLoading$|async) {
+  <p>Content loading...</p>
+}
+@if (isContentError$|async) {
+  <p>CONTENT LOADING ERROR: {{contentKey}}</p>
+}
+@if (isContentEmpty$|async) {
+  <p>CONTENT EMPTY: {{contentKey}}</p>
+}

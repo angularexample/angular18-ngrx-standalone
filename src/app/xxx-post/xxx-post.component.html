@@ -1,0 +1,39 @@
+<main>
+  <xxx-content contentKey="{{contentKey}}"></xxx-content>
+  @if (content$ | async; as content) {
+    <section>
+      <h2>{{ content?.contentModel?.pageTitle }}</h2>
+    </section>
+    @if (isNoSelectedUser$ | async) {
+      <div>There is no selected user.</div>
+      <div>Go to User page to select a user.</div>
+    }
+    @if (isPostsLoading$ | async) {
+      <p>Loading...</p>
+    } @else if (isPostsEmpty$ | async) {
+      <p>None found. Try a different user.</p>
+    }
+    @if (isPostsLoaded$ | async) {
+      <section>
+        <h3>{{ content?.contentModel?.bodyText }}</h3>
+        <table class="xxx-table">
+          <tr>
+            <th class="xxx-table-cell-header">Id</th>
+            <th class="xxx-table-cell-header">Title</th>
+            <th class="xxx-table-cell-header">Body</th>
+          </tr>
+          @for (post of posts$ | async; track post) {
+            <tr
+              class="xxx-table-row"
+              [class.active]="(selectedPostId$|async)===post.id"
+              (click)="selectPost(post)">
+              <td class="xxx-table-cell">{{ post.id }}</td>
+              <td class="xxx-table-cell">{{ post.title }}</td>
+              <td class="xxx-table-cell">{{ post.body }}</td>
+            </tr>
+          }
+        </table>
+      </section>
+    }
+  }
+</main>

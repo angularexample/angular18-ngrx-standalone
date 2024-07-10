@@ -1,0 +1,7 @@
+{
+  "contentModel": {
+    "pageTitle": "Home",
+    "bodyText": "This is demo app to show lazy loading of NgRx feature states, using Angular 18, but without standalone components.  Go to the Users page to begin the demo."
+  },
+  "key": "home"
+}

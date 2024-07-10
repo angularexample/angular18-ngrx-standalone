@@ -1,0 +1,51 @@
+{
+  "name": "angular18-ngrx-standalone",
+  "version": "18.0.1",
+  "description": "Angular 18 NgRx using standalone",
+  "author": {
+    "name": "JC Lango",
+    "email": "info@angularexample.com"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.0.4",
+    "@angular/cdk": "^18.0.6",
+    "@angular/common": "^18.0.4",
+    "@angular/compiler": "^18.0.4",
+    "@angular/core": "^18.0.4",
+    "@angular/forms": "^18.0.4",
+    "@angular/material": "^18.0.6",
+    "@angular/platform-browser": "^18.0.4",
+    "@angular/platform-browser-dynamic": "^18.0.4",
+    "@angular/router": "^18.0.4",
+    "@ngrx/effects": "^18.0.0",
+    "@ngrx/operators": "^18.0.0",
+    "@ngrx/store": "^18.0.0",
+    "@ngrx/store-devtools": "^18.0.0",
+    "lodash": "^4.17.21",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.6.3",
+    "zone.js": "~0.14.7"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.0.5",
+    "@angular/cli": "~18.0.5",
+    "@angular/compiler-cli": "^18.0.4",
+    "@types/jasmine": "~5.1.4",
+    "@types/lodash": "^4.17.6",
+    "jasmine-core": "~5.1.2",
+    "karma": "~6.4.3",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.4.5"
+  }
+}

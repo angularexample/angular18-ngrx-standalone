@@ -1,0 +1,9 @@
+<main>
+  <xxx-content contentKey="{{contentKey}}"></xxx-content>
+  @if (content$|async; as content) {
+    <section>
+      <h1>{{ content?.contentModel?.pageTitle }}</h1>
+      <div class="xxx-body-content">{{ content?.contentModel?.bodyText }}</div>
+    </section>
+  }
+</main>

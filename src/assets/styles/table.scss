@@ -1,0 +1,35 @@
+.xxx-table {
+  border-collapse: collapse;
+}
+
+.xxx-table-cell, .xxx-table-cell-header {
+  border: 1px solid #ddd;
+  padding: .5rem;
+}
+
+.xxx-table-cell-header {
+  background-color: #04AA6D;
+  color: white;
+  font-weight: bold;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+.xxx-table-row {
+  cursor: pointer;
+}
+
+.xxx-table-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+//must follow other row background states
+.xxx-table-row:hover {
+  background-color: #ddd;
+}
+
+//must follow other row background states
+.xxx-table-row.active {
+  background-color: gold;
+}

@@ -1,0 +1,97 @@
+/* global styles for forms and form controls */
+
+:root {
+  --xxx-button-background-color: blue;
+  --xxx-button-color: #fff;
+  --xxx-button-disabled-background-color: dimgray;
+  --xxx-button-disabled-color: linen;
+  --xxx-button-disabled-opacity: 1;
+  --xxx-button-font-family: "Helvetica", "Arial", sans-serif;
+  --xxx-button-font-weight: bold;
+  --xxx-button-height: 2.5rem;
+  --xxx-button-min-width: 10rem;
+  --xxx-form-row-margin-top: 1rem;
+  --xxx-input-border-color: #555;
+  --xxx-input-border-radius: 0.25rem;
+  --xxx-input-border-width: 1px;
+  --xxx-input-color: #555;
+  --xxx-input-disabled-background-color: silver;
+  --xxx-input-disabled-color: #fff;
+  --xxx-input-disabled-opacity: 0.5;
+  --xxx-input-font-family: "Courier New", "Courier", monospace;
+  --xxx-input-margin-top: 0.25rem;
+  --xxx-input-padding: 0.25rem;
+  --xxx-input-validation-color: darkred;
+  --xxx-input-validation-font-size: small;
+  --xxx-input-validation-font-weight: bold;
+  --xxx-input-validation-margin-top: 0.25rem;
+  --xxx-label-font-family: "Helvetica", "Arial", sans-serif;
+  --xxx-label-font-size: 0.75rem;
+  --xxx-label-font-weight: bold;
+}
+
+input[type=password],
+input[type=text],
+select,
+textarea {
+  border: var(--xxx-input-border-width) solid;
+  border-color: var(--xxx-input-border-color);
+  border-radius: var(--xxx-input-border-radius);
+  color: var(--xxx-input-color);
+  font-family: var(--xxx-input-font-family), monospace;
+  margin-top: var(--xxx-input-margin-top);
+  padding: var(xxx-input-padding);
+}
+
+input[type=password]:disabled,
+input[type=password]:read-only,
+input[type=text]:disabled,
+input[type=text]:read-only,
+select:disabled,
+select:read-only,
+textarea:disabled,
+textarea:read-only,{
+  background-color: var(--xxx-input-disabled-background-color);
+  cursor: not-allowed;
+  opacity: var(--xxx-input-disabled-opacity);
+}
+
+form button,
+input[type=submit] {
+  background-color: var(--xxx-button-background-color);
+  border-radius: var(--xxx-input-border-radius);
+  color: var(--xxx-button-color);
+  cursor: pointer;
+  display: block;
+  font-weight: var(--xxx-button-font-weight);
+  height: var(--xxx-button-height);
+  margin-top: var(--xxx-form-row-margin-top);
+  min-width: var(--xxx-button-min-width);
+}
+
+form button:disabled,
+input[type=submit]:disabled {
+  background-color: var(--xxx-button-disabled-background-color);
+  color: var(--xxx-button-disabled-color);
+  cursor: not-allowed;
+  opacity: var(--xxx-button-disabled-opacity);
+}
+
+label {
+  display: block;
+  font-family: var(--xxx-label-font-family), sans-serif;
+  font-size: var(--xxx-label-font-size);
+  font-weight: var(--xxx-label-font-weight);
+  margin-top: var(--xxx-form-row-margin-top);
+}
+
+.xxx-input-validation {
+  color: var(--xxx-input-validation-color);
+  font-size: var(--xxx-input-validation-font-size);
+  font-weight: var(--xxx-input-validation-font-weight);
+  margin-top: var(--xxx-input-validation-margin-top);
+}
+
+.xxx-label-required {
+  color: var(--xxx-input-validation-color);
+}

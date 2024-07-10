@@ -1,0 +1,39 @@
+<main>
+  <xxx-content contentKey="{{contentKey}}"></xxx-content>
+  @if (content$ | async; as content) {
+    <section>
+      <h2>{{ content?.contentModel?.pageTitle }}</h2>
+    </section>
+    @if (isNoSelectedPost$ | async) {
+      <div>There is no selected post.</div>
+      <div>Go to User page to select a user. Then on Posts page select a post.</div>
+    } @else {
+      <section>
+        <h3>{{ content?.contentModel?.bodyText }}</h3>
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+          <label for="xxx-user-id">User Id</label>
+          <input formControlName="userId" id="xxx-user-id" readonly>
+          <label for="xxx-id">Id</label>
+          <input formControlName="id" id="xxx-id" readonly>
+          <label for="xxx-post-title">
+            Title
+            <span class="xxx-label-required">*</span>
+          </label>
+          <input formControlName="title" id="xxx-post-title" size="80" maxlength="80" type="text"/>
+          @if (postForm.controls['title'].errors?.['required']) {
+            <div class="xxx-input-validation">Title is required.</div>
+          }
+          <label for="xxx-post-body">
+            Body
+            <span class="xxx-label-required">*</span>
+          </label>
+          <textarea cols="80" formControlName="body" id="xxx-post-body" maxlength="255" rows="4"></textarea>
+          @if (postForm.controls['body'].errors?.['required']) {
+            <div class="xxx-input-validation">Body is required.</div>
+          }
+          <input [disabled]="(isSaveButtonDisabled$ | async) || postForm.invalid" type="submit" value="Save Post">
+        </form>
+      </section>
+    }
+  }
+</main>

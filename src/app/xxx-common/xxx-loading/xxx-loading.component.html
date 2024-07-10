@@ -1,0 +1,10 @@
+@if (loading$ | async) {
+  <div class="xxx-loading-container">
+    @if (customLoadingIndicator) {
+      <ng-container
+        *ngTemplateOutlet="customLoadingIndicator"/>
+    } @else {
+      <mat-spinner/>
+    }
+  </div>
+}

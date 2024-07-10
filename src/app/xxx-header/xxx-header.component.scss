@@ -1,0 +1,16 @@
+.xxx-header {
+  align-items: center;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+}
+
+.xxx-header-menu {
+  display: flex;
+}
+
+.xxx-header-menu-item {
+  padding: .5rem;
+}
