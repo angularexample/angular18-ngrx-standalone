@@ -3,7 +3,7 @@ import {Routes} from "@angular/router";
 export const appRoutes: Routes = [
     {
         path: '',
-        loadChildren: () => import('./xxx-home/xxx-home.module').then(m => m.XxxHomeModule)
+        loadChildren: () => import('./xxx-home/xxx-home.routes').then(m => m.xxxHomeRoutes)
     },
     {
         path: 'user',
