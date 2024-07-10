@@ -7,7 +7,7 @@ export const appRoutes: Routes = [
     },
     {
         path: 'user',
-        loadChildren: () => import('./xxx-user/xxx-user.module').then(m => m.XxxUserModule)
+        loadChildren: () => import('./xxx-user/xxx-user.routes').then(m => m.xxxUserRoutes)
     },
     {
         path: 'post',
