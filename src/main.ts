@@ -1,12 +1,32 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import {enableProdMode, importProvidersFrom, isDevMode} from '@angular/core';
+import {environment} from './environments/environment';
+import {AppComponent} from './app/app.component';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {provideAnimations} from '@angular/platform-browser/animations';
+import {bootstrapApplication, BrowserModule} from '@angular/platform-browser';
+import {AppRoutingModule} from './app/app-routing.module';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 
 if (environment.production) {
-  enableProdMode();
+    enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+    providers: [
+        importProvidersFrom(AppRoutingModule, BrowserModule, EffectsModule.forRoot([]), StoreModule.forRoot({}, {}), StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+            logOnly: !isDevMode(), // Restrict extension to log-only mode
+            autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+            trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
+            traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
+            connectInZone: true // If set to true, the connection is established within the Angular zone
+        })),
+        provideAnimationsAsync(),
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimations()
+    ]
+})
+    .catch(err => console.error(err));
