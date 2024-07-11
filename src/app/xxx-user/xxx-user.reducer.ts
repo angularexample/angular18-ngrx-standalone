@@ -1,13 +1,12 @@
 import {createReducer, on} from '@ngrx/store';
-import * as XxxUserActions from './xxx-user.actions';
+import {XxxUserActions} from './xxx-user.actions';
 import {xxxUserInitialState} from "./xxx-user.types";
-import {xxxGetUsers, xxxGetUsersError, xxxGetUsersSuccess, xxxSelectUser} from "./xxx-user.reducer-logic";
-
+import * as XxxUserReducers from "./xxx-user.reducer-logic";
 
 export const xxxUserReducer = createReducer(
-  xxxUserInitialState,
-  on(XxxUserActions.getUsers, xxxGetUsers),
-  on(XxxUserActions.getUsersError, xxxGetUsersError),
-  on(XxxUserActions.getUsersSuccess, xxxGetUsersSuccess),
-  on(XxxUserActions.selectUser, xxxSelectUser)
+    xxxUserInitialState,
+    on(XxxUserActions.getUsers, XxxUserReducers.getUsers),
+    on(XxxUserActions.getUsersError, XxxUserReducers.getUsersError),
+    on(XxxUserActions.getUsersSuccess, XxxUserReducers.getUsersSuccess),
+    on(XxxUserActions.selectUser, XxxUserReducers.selectUser)
 );

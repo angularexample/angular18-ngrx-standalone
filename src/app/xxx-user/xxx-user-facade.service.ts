@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {XxxUser} from "./xxx-user.types";
 import {Store} from "@ngrx/store";
-import * as XxxUserActions from './xxx-user.actions';
+import {XxxUser} from "./xxx-user.types";
+import {XxxUserActions} from './xxx-user.actions';
 import * as XxxUserSelectors from './xxx-user.selectors';
 
 @Injectable({
@@ -18,11 +18,11 @@ export class XxxUserFacadeService {
   constructor(private store: Store) {
   }
 
-  dispatchShowUsers(): void {
+  showUsers(): void {
     this.store.dispatch(XxxUserActions.showUsers())
   }
 
-  dispatchSelectUser(userId: number): void {
+  selectUser(userId: number): void {
     this.store.dispatch(XxxUserActions.selectUser({userId}))
   }
 }

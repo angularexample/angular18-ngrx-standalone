@@ -1,6 +1,6 @@
 import {XxxUser, XxxUserApiResponse, XxxUserState} from "./xxx-user.types";
 
-export const xxxGetUsers = (state: XxxUserState) => {
+export const getUsers = (state: XxxUserState) => {
   return {
     ...state,
     isUsersLoading: true,
@@ -8,14 +8,14 @@ export const xxxGetUsers = (state: XxxUserState) => {
   }
 }
 
-export const xxxGetUsersError = (state: XxxUserState) => {
+export const getUsersError = (state: XxxUserState) => {
   return {
     ...state,
     isUsersLoading: false,
   }
 }
 
-export const xxxGetUsersSuccess = (state: XxxUserState, action: { payload: XxxUserApiResponse }) => {
+export const getUsersSuccess = (state: XxxUserState, action: { payload: XxxUserApiResponse }) => {
   const users: XxxUser[] = <XxxUser[]>JSON.parse(JSON.stringify(action.payload.users));
   return {
     ...state,
@@ -23,7 +23,7 @@ export const xxxGetUsersSuccess = (state: XxxUserState, action: { payload: XxxUs
     users,
   }
 }
-export const xxxSelectUser = (state: XxxUserState, action: {userId: number}) => {
+export const selectUser = (state: XxxUserState, action: {userId: number}) => {
   return {
     ...state,
     selectedUserId: action.userId

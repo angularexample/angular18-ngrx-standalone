@@ -30,10 +30,10 @@ export class XxxUserComponent {
         private contentFacade: XxxContentFacadeService,
         private userFacade: XxxUserFacadeService) {
         this.contentFacade.getContent(this.contentKey)
-        this.userFacade.dispatchShowUsers();
+        this.userFacade.showUsers();
     }
 
     rowClick(user: XxxUser) {
-        this.userFacade.dispatchSelectUser(user.id);
+        this.userFacade.selectUser(user.id);
     }
 }
