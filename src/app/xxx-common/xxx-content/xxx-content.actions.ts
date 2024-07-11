@@ -1,22 +1,13 @@
-import {createAction, props} from '@ngrx/store';
-import {XxxContent, xxxContentFeatureName} from "./xxx-content.types";
+import {createActionGroup, props} from '@ngrx/store';
+import {XxxContent} from "./xxx-content.types";
 
-export const getContent = createAction(
-  `${xxxContentFeatureName}.getContent`,
-  props<{ key: string }>()
-);
-
-export const getContentError = createAction(
-  `${xxxContentFeatureName}.getContentError`,
-  props<{ key: string }>()
-);
-
-export const getContentSuccess = createAction(
-  `${xxxContentFeatureName}.getContentSuccess`,
-  props<{ content: XxxContent }>()
-);
-
-export const showContent = createAction(
-  `${xxxContentFeatureName}.showContent`,
-  props<{ key: string }>()
-);
+export const XxxContentActions = createActionGroup({
+    source: 'xxxContent',
+    events: {
+        // defining an event with payload using the `props` function
+        'getContent': props<{ key: string }>(),
+        'getContentError': props<{ key: string }>(),
+        'getContentSuccess': props<{ content: XxxContent }>(),
+        'showContent': props<{ key: string }>(),
+    },
+});
