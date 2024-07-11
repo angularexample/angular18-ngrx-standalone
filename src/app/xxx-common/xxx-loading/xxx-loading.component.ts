@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, ContentChild, Input, OnInit, TemplateRef} from '@angular/core';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
+import {AsyncPipe, NgTemplateOutlet} from '@angular/common';
 import {Observable, tap} from "rxjs";
 import {RouteConfigLoadEnd, RouteConfigLoadStart, Router} from "@angular/router";
 import {XxxLoadingService} from "./xxx-loading.service";
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { NgTemplateOutlet, AsyncPipe } from '@angular/common';
 
 /*
 To turn off loading for certain http requests, set the context as in this example
@@ -23,37 +23,41 @@ add the attribute to the loading element as in this example
     },
  */
 @Component({
-    selector: 'xxx-loading',
-    templateUrl: './xxx-loading.component.html',
-    styleUrl: './xxx-loading.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        AsyncPipe,
+        MatProgressSpinner,
+        NgTemplateOutlet,
+    ],
+    selector: 'xxx-loading',
     standalone: true,
-    imports: [NgTemplateOutlet, MatProgressSpinner, AsyncPipe]
+    styleUrl: './xxx-loading.component.scss',
+    templateUrl: './xxx-loading.component.html',
 })
 export class XxxLoadingComponent implements OnInit {
-  @ContentChild("loading") customLoadingIndicator: TemplateRef<any> | null = null;
-  @Input() detectRouteTransitions = false;
-  loading$: Observable<boolean>;
+    @ContentChild("loading") customLoadingIndicator: TemplateRef<any> | null = null;
+    @Input() detectRouteTransitions = false;
+    loading$: Observable<boolean>;
 
-  constructor(
-    private loadingService: XxxLoadingService,
-    private router: Router) {
-    this.loading$ = this.loadingService.loading$;
-  }
-
-  ngOnInit() {
-    if (this.detectRouteTransitions) {
-      this.router.events
-        .pipe(
-          tap((event) => {
-            if (event instanceof RouteConfigLoadStart) {
-              this.loadingService.loadingOn();
-            } else if (event instanceof RouteConfigLoadEnd) {
-              this.loadingService.loadingOff();
-            }
-          })
-        )
-        .subscribe();
+    constructor(
+        private loadingService: XxxLoadingService,
+        private router: Router) {
+        this.loading$ = this.loadingService.loading$;
     }
-  }
+
+    ngOnInit() {
+        if (this.detectRouteTransitions) {
+            this.router.events
+                .pipe(
+                    tap((event) => {
+                        if (event instanceof RouteConfigLoadStart) {
+                            this.loadingService.loadingOn();
+                        } else if (event instanceof RouteConfigLoadEnd) {
+                            this.loadingService.loadingOff();
+                        }
+                    })
+                )
+                .subscribe();
+        }
+    }
 }

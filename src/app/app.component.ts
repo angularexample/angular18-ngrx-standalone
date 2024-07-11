@@ -1,14 +1,18 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { XxxHeaderComponent } from './xxx-header/xxx-header.component';
-import { XxxLoadingComponent } from './xxx-common/xxx-loading/xxx-loading.component';
+import {RouterOutlet} from '@angular/router';
+import {XxxHeaderComponent} from './xxx-header/xxx-header.component';
+import {XxxLoadingComponent} from './xxx-common/xxx-loading/xxx-loading.component';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        RouterOutlet,
+        XxxHeaderComponent,
+        XxxLoadingComponent
+    ],
+    selector: 'app-root',
     standalone: true,
-    imports: [XxxHeaderComponent, RouterOutlet, XxxLoadingComponent]
+    templateUrl: './app.component.html',
 })
 export class AppComponent {
 }
