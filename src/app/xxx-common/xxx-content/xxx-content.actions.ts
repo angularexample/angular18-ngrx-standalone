@@ -1,8 +1,8 @@
 import {createActionGroup, props} from '@ngrx/store';
-import {XxxContent} from "./xxx-content.types";
+import {XxxContent, xxxContentFeatureName} from "./xxx-content.types";
 
 export const XxxContentActions = createActionGroup({
-    source: 'xxxContent',
+    source: xxxContentFeatureName,
     events: {
         'getContent': props<{ key: string }>(),
         'getContentError': props<{ key: string }>(),
