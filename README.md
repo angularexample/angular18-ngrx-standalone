@@ -83,3 +83,17 @@ https://angular.dev/reference/migrations/standalone
 Move redux registration from modules to route providers.
 
 Lazy load routes instead of modules.
+
+## Install ESLint
+
+```ignorelang
+npx eslint --init
+```
+
+Add lint commands to package.json
+
+```ignorelang
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+```
+
