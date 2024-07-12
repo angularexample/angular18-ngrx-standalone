@@ -83,3 +83,30 @@ https://angular.dev/reference/migrations/standalone
 Move redux registration from modules to route providers.
 
 Lazy load routes instead of modules.
+
+## Install and Configure Jest
+
+### Remove Jasmin and Karma
+
+Delete file ```karma.conf.js```
+
+Remove "test" section from ```angular.json```
+
+Remove jasmine and karma packages from ```package.json```
+
+```ignorelang
+    "@types/jasmine": "~5.1.4",
+    "jasmine-core": "~5.1.2",
+    "karma": "~6.4.3",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+```
+
+Remove "test" command from scripts in ```package.json```.
+
+```ignorelang
+    "test": "ng test"
+```
+
