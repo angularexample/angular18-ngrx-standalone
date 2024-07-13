@@ -110,3 +110,12 @@ Remove "test" command from scripts in ```package.json```.
     "test": "ng test"
 ```
 
+### Install and configure jest
+
+Follow jest setup as in these articles:
+
+https://albertobasalo.medium.com/unit-testing-angular-with-jest-7de62ae2acd8
+
+https://medium.com/@megha.d.parmar2018/angular-unit-testing-with-jest-2023-2676faa2e564
+
+
