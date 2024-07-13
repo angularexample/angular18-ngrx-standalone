@@ -10,7 +10,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "private": true,
   "dependencies": {
@@ -37,7 +39,10 @@
     "@angular-devkit/build-angular": "^18.0.5",
     "@angular/cli": "~18.0.5",
     "@angular/compiler-cli": "^18.0.4",
+    "@types/jest": "^29.5.12",
     "@types/lodash": "^4.17.6",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.1.1",
     "typescript": "~5.4.5"
   }
 }
