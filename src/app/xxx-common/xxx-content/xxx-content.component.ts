@@ -1,5 +1,5 @@
 import {AsyncPipe} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {XxxContentFacadeService} from "./xxx-content-facade.service";
 
@@ -12,13 +12,11 @@ import {XxxContentFacadeService} from "./xxx-content-facade.service";
     templateUrl: './xxx-content.component.html',
 })
 export class XxxContentComponent implements OnInit {
+    private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
     @Input({required: true}) contentKey!: string;
     isContentEmpty$: Observable<boolean> | undefined;
     isContentError$: Observable<boolean> | undefined;
     isContentLoading$: Observable<boolean> | undefined;
-
-    constructor(private contentFacade: XxxContentFacadeService) {
-    }
 
     ngOnInit(): void {
         this.isContentEmpty$ = this.contentFacade.isContentEmpty$(this.contentKey);

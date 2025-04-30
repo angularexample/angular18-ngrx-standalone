@@ -1,7 +1,7 @@
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {catchError, map, of, switchMap, tap} from 'rxjs';
 import {concatLatestFrom} from '@ngrx/operators';
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {XxxAlertService} from "../xxx-common/xxx-alert/xxx-alert.service";
@@ -12,6 +12,11 @@ import * as XxxPostSelectors from './xxx-post.selectors';
 
 @Injectable()
 export class XxxPostEffects {
+    private actions$: Actions = inject(Actions);
+    private router: Router = inject(Router);
+    private store: Store = inject(Store);
+    private xxxAlertService: XxxAlertService = inject(XxxAlertService);
+    private xxxPostDataService: XxxPostDataService = inject(XxxPostDataService);
 
     getUserPosts$ = createEffect(() =>
         this.actions$.pipe(
@@ -79,13 +84,4 @@ export class XxxPostEffects {
             })
         ), {dispatch: false}
     );
-
-    constructor(
-        private actions$: Actions,
-        private router: Router,
-        private store: Store,
-        private xxxAlertService: XxxAlertService,
-        private xxxPostDataService: XxxPostDataService
-    ) {
-    }
 }

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {Observable} from "rxjs";
 import {XxxContent} from "../xxx-common/xxx-content/xxx-content.types";
 import {XxxContentFacadeService} from "../xxx-common/xxx-content/xxx-content-facade.service";
@@ -16,10 +16,11 @@ import {XxxContentComponent} from '../xxx-common/xxx-content/xxx-content.compone
     templateUrl: './xxx-home.component.html',
 })
 export class XxxHomeComponent {
+    private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
     contentKey = 'home';
     content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
 
-    constructor(private contentFacade: XxxContentFacadeService) {
+    constructor() {
         this.contentFacade.getContent(this.contentKey);
     }
 }

@@ -1,5 +1,5 @@
 import {AsyncPipe} from '@angular/common';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {Observable} from "rxjs";
 import {XxxContent} from "../xxx-common/xxx-content/xxx-content.types";
 import {XxxContentComponent} from '../xxx-common/xxx-content/xxx-content.component';
@@ -19,7 +19,9 @@ import {XxxPostFacadeService} from "./xxx-post-facade.service";
 })
 export class XxxPostComponent {
     contentKey: string = 'post';
+    private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
     content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
+    private postFacade: XxxPostFacadeService = inject(XxxPostFacadeService);
     isNoSelectedUser$: Observable<boolean> = this.postFacade.isNoSelectedUser$;
     isPostsEmpty$: Observable<boolean> = this.postFacade.isPostsEmpty$;
     isPostsLoaded$: Observable<boolean> = this.postFacade.isPostsLoaded$;
@@ -27,10 +29,7 @@ export class XxxPostComponent {
     posts$: Observable<XxxPost[]> = this.postFacade.posts$;
     selectedPostId$: Observable<number | undefined> = this.postFacade.selectedPostId$;
 
-    constructor(
-        private contentFacade: XxxContentFacadeService,
-        private postFacade: XxxPostFacadeService
-    ) {
+    constructor() {
         this.contentFacade.getContent(this.contentKey)
         this.postFacade.getUserPosts();
     }

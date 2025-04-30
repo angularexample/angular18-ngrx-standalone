@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ContentChild, Input, OnInit, TemplateRef} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ContentChild, inject, Input, OnInit, TemplateRef} from '@angular/core';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
 import {AsyncPipe, NgTemplateOutlet} from '@angular/common';
 import {Observable, tap} from "rxjs";
@@ -35,13 +35,13 @@ add the attribute to the loading element as in this example
     templateUrl: './xxx-loading.component.html',
 })
 export class XxxLoadingComponent implements OnInit {
+    private loadingService: XxxLoadingService = inject(XxxLoadingService);
+    private router: Router = inject(Router);
     @ContentChild("loading") customLoadingIndicator: TemplateRef<any> | null = null;
     @Input() detectRouteTransitions = false;
     loading$: Observable<boolean>;
 
-    constructor(
-        private loadingService: XxxLoadingService,
-        private router: Router) {
+    constructor() {
         this.loading$ = this.loadingService.loading$;
     }
 

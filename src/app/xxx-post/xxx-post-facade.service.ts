@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {XxxPost} from "./xxx-post.types";
@@ -9,6 +9,7 @@ import * as XxxPostSelectors from './xxx-post.selectors';
     providedIn: 'root'
 })
 export class XxxPostFacadeService {
+    private store: Store = inject(Store);
     isNoSelectedPost$: Observable<boolean> = this.store.select(XxxPostSelectors.selectIsNoSelectedPost);
     isNoSelectedUser$: Observable<boolean> = this.store.select(XxxPostSelectors.selectIsNoSelectedUser);
     isPostsEmpty$: Observable<boolean> = this.store.select(XxxPostSelectors.selectIsPostsEmpty);
@@ -18,9 +19,6 @@ export class XxxPostFacadeService {
     posts$: Observable<XxxPost[]> = this.store.select(XxxPostSelectors.selectPosts);
     selectedPost$: Observable<XxxPost | undefined> = this.store.select(XxxPostSelectors.selectSelectedPost);
     selectedPostId$: Observable<number | undefined> = this.store.select(XxxPostSelectors.selectSelectedPostId);
-
-    constructor(private store: Store) {
-    }
 
     getUserPosts(): void {
         this.store.dispatch(XxxPostActions.getUserPosts())
