@@ -15,7 +15,7 @@ export class XxxContentService {
      * Example "home" will get content from home.json
      */
     getContent(key: string): Observable<XxxContent> {
-        const url = `/assets/data/content/${key}.json`;
+        const url = `/data/content/${key}.json`;
         return this.http.get<XxxContent>(url);
     }
 }

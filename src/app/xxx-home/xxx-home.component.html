@@ -3,7 +3,7 @@
   @if (content$|async; as content) {
     <section>
       <h1>{{ content?.contentModel?.pageTitle }}</h1>
-      <div class="xxx-body-content">{{ content?.contentModel?.bodyText }}</div>
+      <div class="xxx-body-content" [innerHTML]="content?.contentModel?.bodyText | xxxSanitize"></div>
     </section>
   }
 </main>

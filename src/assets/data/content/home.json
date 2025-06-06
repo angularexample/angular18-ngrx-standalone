@@ -1,7 +1,0 @@
-{
-  "contentModel": {
-    "pageTitle": "Home",
-    "bodyText": "Demo app to show Angular Best Practices for large scale web applications. This version uses Angular 18, NgRx, and Standalone Components.  Go to the Users page to begin the demo.    CODE FEATURES:  * 100% Reactive Components, No Services, No Logic, No State.  * No Modules, 100% standalone.  * Standalone NgRx, store registration without modules.  * Standalone Lazy Loading  Components, without modules. * Standalone Lazy Loading NgRx State, feature states are created on demand. * No Router Modules, see main.ts and component routes.  * HttpClient uses provideHttpClient, see main.ts provider. NgRx Action Group. See feature actions.ts. NgRx Facade, store is decoupled from components, see facade services.  * CMS Content Management, all content is provided by reusable content component.  * Performance Optimized, all data is rendered over Async Pipe, all components have Change Detection On Push.  * Memoized Selectors, all NgRx selectors are chained.  * CSS Global Styles, organized by feature, uses variables.  * Feature Based Directory Structure, files and folders organized by dependency.  * Namespace Naming Convention, public elements, objects and files have unique prefix."
-  },
-  "key": "home"
-}

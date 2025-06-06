@@ -1,0 +1,7 @@
+{
+  "contentModel": {
+    "pageTitle": "Home",
+    "bodyText": "<h3>Go to the Users page to begin the demo.</h3><p>Demo app to show Angular Best Practices for large scale web applications.</p><p>This version uses Angular 18, NgRx, and Standalone Components.</p><h3>CODE FEATURES:</h3><ul><li>100% Reactive Components, No Services, No Logic, No State.</li><li>No Modules, 100% standalone.</li><li>State Management using NgRx.</li><li>No Router Modules, see main.ts and component routes.</li><li>HttpClient uses provideHttpClient, see main.ts provider.</li><li>Facade Pattern, store is decoupled from components, see facade services.</li><li>CMS Content Management, all content is provided by reusable content component.</li><li>Content can use embedded HTML.</li><li>Performance Optimized, all dynamic data are Signals.</li><li>All components have Change Detection On Push.</li><li>All NgRx selectors are memoized.</li><li>Standalone Lazy Loading Components, without modules.</li><li>Standalone Lazy Loading NgRx State, feature states are created on demand.</li><li>SCSS Global Styles, organized by feature, uses partials and variables.</li><li>Feature Based Directory Structure, files and folders organized by dependency.</li><li>Namespace Naming Convention, public elements, objects and files have common unique prefix.</li><li>HTML templates use new Control Flow syntax.</li><li>Services use new inject syntax.</li></p>"
+  },
+  "key": "home"
+}
