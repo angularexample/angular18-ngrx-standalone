@@ -50,7 +50,7 @@ input[type=text]:read-only,
 select:disabled,
 select:read-only,
 textarea:disabled,
-textarea:read-only,{
+textarea:read-only, {
   background-color: var(--xxx-input-disabled-background-color);
   cursor: not-allowed;
   opacity: var(--xxx-input-disabled-opacity);
