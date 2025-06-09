@@ -13,4 +13,4 @@ export const xxxPostReducer = createReducer(
   on(XxxPostActions.updatePost, XxxPostReducerLogic.xxxUpdatePost),
   on(XxxPostActions.updatePostError, XxxPostReducerLogic.xxxUpdatePostError),
   on(XxxPostActions.updatePostSuccess, XxxPostReducerLogic.xxxUpdatePostSuccess),
-  );
+);

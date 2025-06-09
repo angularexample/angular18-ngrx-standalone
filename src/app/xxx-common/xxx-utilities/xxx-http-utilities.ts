@@ -11,7 +11,7 @@ export class XxxHttpUtilities {
    */
   static setErrorMessage(err: HttpErrorResponse): string {
     let errorMessage: string;
-    if(err.error instanceof ErrorEvent){
+    if (err.error instanceof ErrorEvent) {
       errorMessage = `An error occurred: ${err.error.message}`;
     } else {
       errorMessage = `Error Status: ${err.status}, Message: ${err.message}`;

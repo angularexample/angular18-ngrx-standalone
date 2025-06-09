@@ -11,7 +11,7 @@ export interface XxxUserApiResponse {
   users: XxxUser[];
 }
 
-export const xxxUserFeatureName='xxxUser';
+export const xxxUserFeatureName = 'xxxUser';
 
 export const xxxUserInitialState: XxxUserState = {
   isUsersLoading: false,

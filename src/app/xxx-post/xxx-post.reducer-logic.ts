@@ -35,7 +35,7 @@ export const xxxSelectPost = (state: XxxPostState, action: { postId: number }) =
   return newState;
 }
 
-export const xxxSetPostForm = (state: XxxPostState, action: {post: XxxPost}) => {
+export const xxxSetPostForm = (state: XxxPostState, action: { post: XxxPost }) => {
   const postForm: XxxPost = <XxxPost>JSON.parse(JSON.stringify(action.post));
   return {
     ...state,

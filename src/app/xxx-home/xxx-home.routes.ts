@@ -8,19 +8,19 @@ import {xxxContentReducer} from "../xxx-common/xxx-content/xxx-content.reducer";
 import {XxxHomeComponent} from "./xxx-home.component";
 
 export const xxxHomeRoutes: Route[] = [
-    {
+  {
+    path: '',
+    providers: [
+      importProvidersFrom(
+        StoreModule.forFeature(xxxContentFeatureName, xxxContentReducer),
+        EffectsModule.forFeature([XxxContentEffects])
+      )
+    ],
+    children: [
+      {
         path: '',
-        providers: [
-            importProvidersFrom(
-                StoreModule.forFeature(xxxContentFeatureName, xxxContentReducer),
-                EffectsModule.forFeature([XxxContentEffects])
-            )
-        ],
-        children: [
-            {
-                path: '',
-                component: XxxHomeComponent,
-            }
-        ],
-    },
+        component: XxxHomeComponent,
+      }
+    ],
+  },
 ];

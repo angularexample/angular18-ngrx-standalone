@@ -2,7 +2,6 @@ import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {XxxPost, xxxPostFeatureName, XxxPostState} from "./xxx-post.types";
 import * as XxxUserSelectors from '../xxx-user/xxx-user.selectors';
 import {XxxUserState} from "../xxx-user/xxx-user.types";
-import * as _ from 'lodash';
 
 export const selectPostState = createFeatureSelector<XxxPostState>(xxxPostFeatureName);
 
@@ -66,7 +65,8 @@ export const selectIsSaveButtonDisabled = createSelector(
   selectSelectedPost,
   selectPostForm,
   (isPostUpdating: boolean, isPostsLoaded: boolean, selectedPost: XxxPost | undefined, postForm: XxxPost | undefined) => {
-    return isPostUpdating || (!isPostsLoaded) || (selectedPost === undefined) || (postForm === undefined) || _.isEqual(selectedPost, postForm)
+    const isPostFormEqual: boolean = JSON.stringify(selectedPost) === JSON.stringify(postForm);
+    return isPostUpdating || !isPostsLoaded || (selectedPost === undefined) || (postForm === undefined) || isPostFormEqual;
   }
 );
 

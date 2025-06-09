@@ -7,22 +7,22 @@ import {XxxContentFacadeService} from "../xxx-common/xxx-content/xxx-content-fac
 import {XxxSanitizePipe} from '../xxx-common/xxx-sanitize/xxx-sanitize.pipe';
 
 @Component({
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        AsyncPipe,
-        XxxContentComponent,
-        XxxSanitizePipe,
-    ],
-    selector: 'xxx-home',
-    standalone: true,
-    templateUrl: './xxx-home.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    AsyncPipe,
+    XxxContentComponent,
+    XxxSanitizePipe,
+  ],
+  selector: 'xxx-home',
+  standalone: true,
+  templateUrl: './xxx-home.component.html',
 })
 export class XxxHomeComponent {
-    private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
-    contentKey = 'home';
-    content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
+  private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
+  contentKey = 'home';
+  content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
 
-    constructor() {
-        this.contentFacade.getContent(this.contentKey);
-    }
+  constructor() {
+    this.contentFacade.getContent(this.contentKey);
+  }
 }

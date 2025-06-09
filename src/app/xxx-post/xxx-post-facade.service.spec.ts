@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { XxxPostFacadeService } from './xxx-post-facade.service';
+import {XxxPostFacadeService} from './xxx-post-facade.service';
 
 describe('XxxUserFacadeServiceService', () => {
   let service: XxxPostFacadeService;

@@ -12,25 +12,25 @@ import {XxxPostEffects} from "./xxx-post.effects";
 import {XxxPostEditComponent} from "./xxx-post-edit/xxx-post-edit.component";
 
 export const xxxPostRoutes: Route[] = [
-    {
+  {
+    path: '',
+    providers: [
+      importProvidersFrom(
+        StoreModule.forFeature(xxxContentFeatureName, xxxContentReducer),
+        EffectsModule.forFeature([XxxContentEffects]),
+        StoreModule.forFeature(xxxPostFeatureName, xxxPostReducer),
+        EffectsModule.forFeature([XxxPostEffects]),
+      )
+    ],
+    children: [
+      {
         path: '',
-        providers: [
-            importProvidersFrom(
-                StoreModule.forFeature(xxxContentFeatureName, xxxContentReducer),
-                EffectsModule.forFeature([XxxContentEffects]),
-                StoreModule.forFeature(xxxPostFeatureName, xxxPostReducer),
-                EffectsModule.forFeature([XxxPostEffects]),
-            )
-        ],
-        children: [
-            {
-                path: '',
-                component: XxxPostComponent,
-            },
-            {
-                path: 'edit',
-                component: XxxPostEditComponent,
-            },
-        ],
-    },
+        component: XxxPostComponent,
+      },
+      {
+        path: 'edit',
+        component: XxxPostEditComponent,
+      },
+    ],
+  },
 ];

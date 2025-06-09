@@ -23,7 +23,7 @@ export const getUsersSuccess = (state: XxxUserState, action: { payload: XxxUserA
     users,
   }
 }
-export const selectUser = (state: XxxUserState, action: {userId: number}) => {
+export const selectUser = (state: XxxUserState, action: { userId: number }) => {
   return {
     ...state,
     selectedUserId: action.userId
