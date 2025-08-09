@@ -18,23 +18,23 @@ import { XxxPostFacadeService } from "./xxx-post-facade.service";
   templateUrl: './xxx-post.component.html',
 })
 export class XxxPostComponent {
-  contentKey: string = 'post';
+  protected readonly contentKey: string = 'post';
   private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
-  content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
+  protected readonly content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
   private postFacade: XxxPostFacadeService = inject(XxxPostFacadeService);
-  isNoSelectedUser$: Observable<boolean> = this.postFacade.isNoSelectedUser$;
-  isPostsEmpty$: Observable<boolean> = this.postFacade.isPostsEmpty$;
-  isPostsLoaded$: Observable<boolean> = this.postFacade.isPostsLoaded$;
-  isPostsLoading$: Observable<boolean> = this.postFacade.isPostsLoading$;
-  posts$: Observable<XxxPost[]> = this.postFacade.posts$;
-  selectedPostId$: Observable<number | undefined> = this.postFacade.selectedPostId$;
+  protected readonly isNoSelectedUser$: Observable<boolean> = this.postFacade.isNoSelectedUser$;
+  protected readonly isPostsEmpty$: Observable<boolean> = this.postFacade.isPostsEmpty$;
+  protected readonly isPostsLoaded$: Observable<boolean> = this.postFacade.isPostsLoaded$;
+  protected readonly isPostsLoading$: Observable<boolean> = this.postFacade.isPostsLoading$;
+  protected readonly posts$: Observable<XxxPost[]> = this.postFacade.posts$;
+  protected readonly selectedPostId$: Observable<number | undefined> = this.postFacade.selectedPostId$;
 
   constructor() {
     this.contentFacade.getContent(this.contentKey)
     this.postFacade.getUserPosts();
   }
 
-  selectPost(post: XxxPost) {
+  protected selectPost(post: XxxPost): void {
     this.postFacade.selectPost(post.id);
   }
 }

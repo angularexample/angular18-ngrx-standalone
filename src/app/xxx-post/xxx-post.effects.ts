@@ -14,6 +14,10 @@ import * as XxxPostSelectors from './xxx-post.selectors';
 export class XxxPostEffects {
   private actions$: Actions = inject(Actions);
   private router: Router = inject(Router);
+  private store: Store = inject(Store);
+  private xxxAlertService: XxxAlertService = inject(XxxAlertService);
+  private xxxPostDataService: XxxPostDataService = inject(XxxPostDataService);
+
   selectPost$ = createEffect(() => this.actions$.pipe(
       ofType(XxxPostActions.selectPost),
       tap(() => {
@@ -21,8 +25,7 @@ export class XxxPostEffects {
       })
     ), {dispatch: false}
   );
-  private store: Store = inject(Store);
-  private xxxAlertService: XxxAlertService = inject(XxxAlertService);
+
   getUserPostsError$ = createEffect(() => this.actions$.pipe(
       ofType(XxxPostActions.getUserPostsError),
       tap(() => {
@@ -30,6 +33,7 @@ export class XxxPostEffects {
       })
     ), {dispatch: false}
   );
+
   updatePostError$ = createEffect(() => this.actions$.pipe(
       ofType(XxxPostActions.updatePostError),
       tap(() => {
@@ -37,6 +41,7 @@ export class XxxPostEffects {
       })
     ), {dispatch: false}
   );
+
   updatePostSuccess$ = createEffect(() => this.actions$.pipe(
       ofType(XxxPostActions.updatePostSuccess),
       tap(() => {
@@ -45,7 +50,7 @@ export class XxxPostEffects {
       })
     ), {dispatch: false}
   );
-  private xxxPostDataService: XxxPostDataService = inject(XxxPostDataService);
+
   getUserPosts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxPostActions.getUserPosts),
@@ -62,6 +67,7 @@ export class XxxPostEffects {
         }
       })
     ));
+
   updatePosts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxPostActions.updatePost),

@@ -7,13 +7,13 @@ import { BehaviorSubject, Observable } from "rxjs";
 export class XxxLoadingService {
   private loadingSubject: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
-  loading$: Observable<boolean> = this.loadingSubject.asObservable();
+  readonly loading$: Observable<boolean> = this.loadingSubject.asObservable();
 
-  loadingOn() {
+  loadingOn(): void {
     this.loadingSubject.next(true);
   }
 
-  loadingOff() {
+  loadingOff(): void {
     this.loadingSubject.next(false);
   }
 }

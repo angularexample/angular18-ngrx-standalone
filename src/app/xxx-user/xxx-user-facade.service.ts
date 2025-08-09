@@ -10,11 +10,11 @@ import * as XxxUserSelectors from './xxx-user.selectors';
 })
 export class XxxUserFacadeService {
   private store: Store = inject(Store);
-  isUsersEmpty$: Observable<boolean> = this.store.select(XxxUserSelectors.selectIsUsersEmpty);
-  isUsersLoaded$: Observable<boolean> = this.store.select(XxxUserSelectors.selectIsUsersLoaded);
-  isUsersLoading$: Observable<boolean> = this.store.select(XxxUserSelectors.selectIsUsersLoading);
-  selectedUserId$: Observable<number | undefined> = this.store.select(XxxUserSelectors.selectSelectedUserId);
-  users$: Observable<XxxUser[]> = this.store.select(XxxUserSelectors.selectUsers);
+  readonly isUsersEmpty$: Observable<boolean> = this.store.select(XxxUserSelectors.selectIsUsersEmpty);
+  readonly isUsersLoaded$: Observable<boolean> = this.store.select(XxxUserSelectors.selectIsUsersLoaded);
+  readonly isUsersLoading$: Observable<boolean> = this.store.select(XxxUserSelectors.selectIsUsersLoading);
+  readonly selectedUserId$: Observable<number | undefined> = this.store.select(XxxUserSelectors.selectSelectedUserId);
+  readonly users$: Observable<XxxUser[]> = this.store.select(XxxUserSelectors.selectUsers);
 
   showUsers(): void {
     this.store.dispatch(XxxUserActions.showUsers())

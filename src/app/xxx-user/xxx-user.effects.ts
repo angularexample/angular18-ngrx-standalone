@@ -15,6 +15,11 @@ import * as XxxUserSelectors from "../xxx-user/xxx-user.selectors";
 export class XxxUserEffects {
   private actions$: Actions = inject(Actions);
   private router: Router = inject(Router);
+  private store: Store = inject(Store);
+  private alertService: XxxAlertService = inject(XxxAlertService);
+  private loadingService: XxxLoadingService = inject(XxxLoadingService);
+  private userDataService: XxxUserDataService = inject(XxxUserDataService);
+
   selectUser$ = createEffect(() => this.actions$.pipe(
       ofType(XxxUserActions.selectUser),
       tap(() => {
@@ -22,7 +27,7 @@ export class XxxUserEffects {
       })
     ), {dispatch: false}
   );
-  private store: Store = inject(Store);
+
   showUsers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxUserActions.showUsers),
@@ -31,8 +36,7 @@ export class XxxUserEffects {
       filter((isUsersLoaded: boolean) => !isUsersLoaded),
       map(() => XxxUserActions.getUsers())
     ));
-  private alertService: XxxAlertService = inject(XxxAlertService);
-  private loadingService: XxxLoadingService = inject(XxxLoadingService);
+
   getUsersError$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxUserActions.getUsersError),
@@ -49,7 +53,7 @@ export class XxxUserEffects {
         this.loadingService.loadingOff()
       }),
     ), {dispatch: false});
-  private userDataService: XxxUserDataService = inject(XxxUserDataService);
+
   getUsers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxUserActions.getUsers),

@@ -18,9 +18,9 @@ import { XxxSanitizePipe } from '../xxx-common/xxx-sanitize/xxx-sanitize.pipe';
   templateUrl: './xxx-home.component.html',
 })
 export class XxxHomeComponent {
-  contentKey = 'home';
+  protected readonly contentKey = 'home';
   private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
-  content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
+  readonly content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
 
   constructor() {
     this.contentFacade.getContent(this.contentKey);

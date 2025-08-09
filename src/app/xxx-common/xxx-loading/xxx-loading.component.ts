@@ -37,15 +37,11 @@ add the attribute to the loading element as in this example
 export class XxxLoadingComponent implements OnInit {
   @ContentChild("loading") customLoadingIndicator: TemplateRef<any> | null = null;
   @Input() detectRouteTransitions = false;
-  loading$: Observable<boolean>;
   private loadingService: XxxLoadingService = inject(XxxLoadingService);
+  protected readonly loading$: Observable<boolean> = this.loadingService.loading$;
   private router: Router = inject(Router);
 
-  constructor() {
-    this.loading$ = this.loadingService.loading$;
-  }
-
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.detectRouteTransitions) {
       this.router.events
         .pipe(

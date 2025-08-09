@@ -11,7 +11,9 @@ import { XxxContent } from "./xxx-content.types";
 @Injectable()
 export class XxxContentEffects {
   private actions$: Actions = inject(Actions);
+  private contentService: XxxContentService = inject(XxxContentService);
   private store: Store = inject(Store);
+
   showContent$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxContentActions.showContent),
@@ -22,7 +24,7 @@ export class XxxContentEffects {
       map(([arg1, _arg2]) => arg1),
       map((action: { key: string }) => XxxContentActions.getContent({key: action.key}))
     ));
-  private contentService: XxxContentService = inject(XxxContentService);
+
   getContent$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxContentActions.getContent),

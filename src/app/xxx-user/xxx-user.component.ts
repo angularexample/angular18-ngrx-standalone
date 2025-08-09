@@ -18,22 +18,22 @@ import { XxxUserFacadeService } from "./xxx-user-facade.service";
   templateUrl: './xxx-user.component.html',
 })
 export class XxxUserComponent {
-  contentKey: string = 'user';
+  protected readonly contentKey: string = 'user';
   private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
-  content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
+  protected readonly content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
   private userFacade: XxxUserFacadeService = inject(XxxUserFacadeService);
-  isUsersEmpty$: Observable<boolean> = this.userFacade.isUsersEmpty$;
-  isUsersLoaded$: Observable<boolean> = this.userFacade.isUsersLoaded$;
-  isUsersLoading$: Observable<boolean> = this.userFacade.isUsersLoading$;
-  selectedUserId$: Observable<number | undefined> = this.userFacade.selectedUserId$;
-  users$: Observable<XxxUser[]> = this.userFacade.users$;
+  protected readonly isUsersEmpty$: Observable<boolean> = this.userFacade.isUsersEmpty$;
+  protected readonly isUsersLoaded$: Observable<boolean> = this.userFacade.isUsersLoaded$;
+  protected readonly isUsersLoading$: Observable<boolean> = this.userFacade.isUsersLoading$;
+  protected readonly selectedUserId$: Observable<number | undefined> = this.userFacade.selectedUserId$;
+  protected readonly users$: Observable<XxxUser[]> = this.userFacade.users$;
 
   constructor() {
     this.contentFacade.getContent(this.contentKey)
     this.userFacade.showUsers();
   }
 
-  rowClick(user: XxxUser) {
+  protected rowClick(user: XxxUser): void {
     this.userFacade.selectUser(user.id);
   }
 }
