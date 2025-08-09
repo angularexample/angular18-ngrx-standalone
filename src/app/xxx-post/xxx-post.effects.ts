@@ -1,23 +1,51 @@
-import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {catchError, map, of, switchMap, tap} from 'rxjs';
-import {concatLatestFrom} from '@ngrx/operators';
-import {inject, Injectable} from '@angular/core';
-import {Router} from "@angular/router";
-import {Store} from "@ngrx/store";
-import {XxxAlertService} from "../xxx-common/xxx-alert/xxx-alert.service";
-import {XxxPost, XxxPostResponse} from "./xxx-post.types";
-import {XxxPostActions} from './xxx-post.actions';
-import {XxxPostDataService} from "./xxx-post-data.service";
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
+import { concatLatestFrom } from '@ngrx/operators';
+import { inject, Injectable } from '@angular/core';
+import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { XxxAlertService } from "../xxx-common/xxx-alert/xxx-alert.service";
+import { XxxPost, XxxPostResponse } from "./xxx-post.types";
+import { XxxPostActions } from './xxx-post.actions';
+import { XxxPostDataService } from "./xxx-post-data.service";
 import * as XxxPostSelectors from './xxx-post.selectors';
 
 @Injectable()
 export class XxxPostEffects {
   private actions$: Actions = inject(Actions);
   private router: Router = inject(Router);
+  selectPost$ = createEffect(() => this.actions$.pipe(
+      ofType(XxxPostActions.selectPost),
+      tap(() => {
+        this.router.navigateByUrl('/post/edit')
+      })
+    ), {dispatch: false}
+  );
   private store: Store = inject(Store);
   private xxxAlertService: XxxAlertService = inject(XxxAlertService);
+  getUserPostsError$ = createEffect(() => this.actions$.pipe(
+      ofType(XxxPostActions.getUserPostsError),
+      tap(() => {
+        this.xxxAlertService.showError('Error occurred getting posts');
+      })
+    ), {dispatch: false}
+  );
+  updatePostError$ = createEffect(() => this.actions$.pipe(
+      ofType(XxxPostActions.updatePostError),
+      tap(() => {
+        this.xxxAlertService.showError('Error occurred. Unable to update post');
+      })
+    ), {dispatch: false}
+  );
+  updatePostSuccess$ = createEffect(() => this.actions$.pipe(
+      ofType(XxxPostActions.updatePostSuccess),
+      tap(() => {
+        this.xxxAlertService.showInfo('Successfully updated post');
+        this.router.navigateByUrl('/post')
+      })
+    ), {dispatch: false}
+  );
   private xxxPostDataService: XxxPostDataService = inject(XxxPostDataService);
-
   getUserPosts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxPostActions.getUserPosts),
@@ -34,23 +62,6 @@ export class XxxPostEffects {
         }
       })
     ));
-
-  getUserPostsError$ = createEffect(() => this.actions$.pipe(
-      ofType(XxxPostActions.getUserPostsError),
-      tap(() => {
-        this.xxxAlertService.showError('Error occurred getting posts');
-      })
-    ), {dispatch: false}
-  );
-
-  selectPost$ = createEffect(() => this.actions$.pipe(
-      ofType(XxxPostActions.selectPost),
-      tap(() => {
-        this.router.navigateByUrl('/post/edit')
-      })
-    ), {dispatch: false}
-  );
-
   updatePosts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(XxxPostActions.updatePost),
@@ -67,21 +78,4 @@ export class XxxPostEffects {
         }
       })
     ));
-
-  updatePostError$ = createEffect(() => this.actions$.pipe(
-      ofType(XxxPostActions.updatePostError),
-      tap(() => {
-        this.xxxAlertService.showError('Error occurred. Unable to update post');
-      })
-    ), {dispatch: false}
-  );
-
-  updatePostSuccess$ = createEffect(() => this.actions$.pipe(
-      ofType(XxxPostActions.updatePostSuccess),
-      tap(() => {
-        this.xxxAlertService.showInfo('Successfully updated post');
-        this.router.navigateByUrl('/post')
-      })
-    ), {dispatch: false}
-  );
 }

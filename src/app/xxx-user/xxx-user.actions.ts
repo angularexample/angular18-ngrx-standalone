@@ -1,5 +1,5 @@
-import {createActionGroup, emptyProps, props} from '@ngrx/store';
-import {XxxUserApiResponse, xxxUserFeatureName} from "./xxx-user.types";
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import { XxxUserApiResponse, xxxUserFeatureName } from "./xxx-user.types";
 
 export const XxxUserActions = createActionGroup({
   source: xxxUserFeatureName,

@@ -1,15 +1,15 @@
-import {enableProdMode, importProvidersFrom, isDevMode} from '@angular/core';
-import {environment} from './environments/environment';
-import {AppComponent} from './app/app.component';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {StoreModule} from '@ngrx/store';
-import {EffectsModule} from '@ngrx/effects';
-import {provideAnimations} from '@angular/platform-browser/animations';
-import {bootstrapApplication, BrowserModule} from '@angular/platform-browser';
-import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
-import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {provideRouter} from "@angular/router";
-import {appRoutes} from "./app/app.routes";
+import { enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
+import { environment } from './environments/environment';
+import { AppComponent } from './app/app.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideRouter } from "@angular/router";
+import { appRoutes } from "./app/app.routes";
 
 if (environment.production) {
   enableProdMode();

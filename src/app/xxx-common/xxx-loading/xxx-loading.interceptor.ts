@@ -1,7 +1,7 @@
-import {XxxLoadingService} from "./xxx-loading.service";
-import {HttpContextToken, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {finalize, Observable} from "rxjs";
-import {inject, Injectable} from "@angular/core";
+import { XxxLoadingService } from "./xxx-loading.service";
+import { HttpContextToken, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { finalize, Observable } from "rxjs";
+import { inject, Injectable } from "@angular/core";
 
 export const SkipLoading =
   new HttpContextToken<boolean>(() => false);

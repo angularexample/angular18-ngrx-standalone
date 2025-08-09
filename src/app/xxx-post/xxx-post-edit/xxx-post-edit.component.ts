@@ -1,13 +1,13 @@
-import {AsyncPipe} from '@angular/common';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {debounceTime, distinctUntilChanged, Observable} from "rxjs";
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {XxxContent} from "../../xxx-common/xxx-content/xxx-content.types";
-import {XxxContentComponent} from '../../xxx-common/xxx-content/xxx-content.component';
-import {XxxContentFacadeService} from "../../xxx-common/xxx-content/xxx-content-facade.service";
-import {XxxPost, xxxPostFormDataInitial} from "../xxx-post.types";
-import {XxxPostFacadeService} from "../xxx-post-facade.service";
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { debounceTime, distinctUntilChanged, Observable } from "rxjs";
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { XxxContent } from "../../xxx-common/xxx-content/xxx-content.types";
+import { XxxContentComponent } from '../../xxx-common/xxx-content/xxx-content.component';
+import { XxxContentFacadeService } from "../../xxx-common/xxx-content/xxx-content-facade.service";
+import { XxxPost, xxxPostFormDataInitial } from "../xxx-post.types";
+import { XxxPostFacadeService } from "../xxx-post-facade.service";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

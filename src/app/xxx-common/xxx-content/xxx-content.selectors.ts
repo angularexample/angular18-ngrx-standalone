@@ -1,5 +1,5 @@
-import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {XxxContent, xxxContentFeatureName, XxxContentState, XxxContentStatus} from "./xxx-content.types";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { XxxContent, xxxContentFeatureName, XxxContentState, XxxContentStatus } from "./xxx-content.types";
 
 export const selectContentState = createFeatureSelector<XxxContentState>(xxxContentFeatureName);
 

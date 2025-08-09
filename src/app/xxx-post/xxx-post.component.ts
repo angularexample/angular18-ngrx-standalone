@@ -1,11 +1,11 @@
-import {AsyncPipe} from '@angular/common';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {Observable} from "rxjs";
-import {XxxContent} from "../xxx-common/xxx-content/xxx-content.types";
-import {XxxContentComponent} from '../xxx-common/xxx-content/xxx-content.component';
-import {XxxContentFacadeService} from "../xxx-common/xxx-content/xxx-content-facade.service";
-import {XxxPost} from "./xxx-post.types";
-import {XxxPostFacadeService} from "./xxx-post-facade.service";
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Observable } from "rxjs";
+import { XxxContent } from "../xxx-common/xxx-content/xxx-content.types";
+import { XxxContentComponent } from '../xxx-common/xxx-content/xxx-content.component';
+import { XxxContentFacadeService } from "../xxx-common/xxx-content/xxx-content-facade.service";
+import { XxxPost } from "./xxx-post.types";
+import { XxxPostFacadeService } from "./xxx-post-facade.service";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,5 +1,5 @@
-import {createActionGroup, props} from '@ngrx/store';
-import {XxxContent, xxxContentFeatureName} from "./xxx-content.types";
+import { createActionGroup, props } from '@ngrx/store';
+import { XxxContent, xxxContentFeatureName } from "./xxx-content.types";
 
 export const XxxContentActions = createActionGroup({
   source: xxxContentFeatureName,

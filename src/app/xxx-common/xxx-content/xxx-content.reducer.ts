@@ -1,6 +1,6 @@
-import {createReducer, on} from '@ngrx/store';
-import {XxxContentActions} from "./xxx-content.actions";
-import {xxxContentInitialState} from "./xxx-content.types";
+import { createReducer, on } from '@ngrx/store';
+import { XxxContentActions } from "./xxx-content.actions";
+import { xxxContentInitialState } from "./xxx-content.types";
 import * as XxxContentReducers from './xxx-content.reducer-logic';
 
 export const xxxContentReducer = createReducer(

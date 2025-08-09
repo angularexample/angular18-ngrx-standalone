@@ -1,7 +1,7 @@
-import {inject, Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {XxxUserApiResponse} from "./xxx-user.types";
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { XxxUserApiResponse } from "./xxx-user.types";
 
 @Injectable({
   providedIn: 'root'

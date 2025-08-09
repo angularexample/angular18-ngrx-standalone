@@ -1,5 +1,5 @@
-import {createActionGroup, emptyProps, props} from '@ngrx/store';
-import {XxxPost, xxxPostFeatureName, XxxPostResponse} from "./xxx-post.types";
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import { XxxPost, xxxPostFeatureName, XxxPostResponse } from "./xxx-post.types";
 
 export const XxxPostActions = createActionGroup({
   source: xxxPostFeatureName,

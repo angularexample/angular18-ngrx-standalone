@@ -1,4 +1,4 @@
-import {XxxUser, XxxUserApiResponse, XxxUserState} from "./xxx-user.types";
+import { XxxUser, XxxUserApiResponse, XxxUserState } from "./xxx-user.types";
 
 export const getUsers = (state: XxxUserState) => {
   return {

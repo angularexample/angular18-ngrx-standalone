@@ -1,4 +1,4 @@
-import {HttpErrorResponse} from "@angular/common/http";
+import { HttpErrorResponse } from "@angular/common/http";
 
 /**
  * Reusable utilities related to Http requests

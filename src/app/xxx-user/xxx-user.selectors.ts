@@ -1,5 +1,5 @@
-import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {XxxUser, xxxUserFeatureName, XxxUserState} from "./xxx-user.types";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { XxxUser, xxxUserFeatureName, XxxUserState } from "./xxx-user.types";
 
 export const selectUserState = createFeatureSelector<XxxUserState>(xxxUserFeatureName);
 

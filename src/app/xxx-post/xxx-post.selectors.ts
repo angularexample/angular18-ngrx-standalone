@@ -1,7 +1,7 @@
-import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {XxxPost, xxxPostFeatureName, XxxPostState} from "./xxx-post.types";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { XxxPost, xxxPostFeatureName, XxxPostState } from "./xxx-post.types";
 import * as XxxUserSelectors from '../xxx-user/xxx-user.selectors';
-import {XxxUserState} from "../xxx-user/xxx-user.types";
+import { XxxUserState } from "../xxx-user/xxx-user.types";
 
 export const selectPostState = createFeatureSelector<XxxPostState>(xxxPostFeatureName);
 

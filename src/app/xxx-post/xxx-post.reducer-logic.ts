@@ -1,4 +1,4 @@
-import {XxxPost, XxxPostState} from "./xxx-post.types";
+import { XxxPost, XxxPostState } from "./xxx-post.types";
 
 export const xxxGetUserPosts = (state: XxxPostState) => {
   return {

@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, Component, ContentChild, inject, Input, OnInit, TemplateRef} from '@angular/core';
-import {MatProgressSpinner} from '@angular/material/progress-spinner';
-import {AsyncPipe, NgTemplateOutlet} from '@angular/common';
-import {Observable, tap} from "rxjs";
-import {RouteConfigLoadEnd, RouteConfigLoadStart, Router} from "@angular/router";
-import {XxxLoadingService} from "./xxx-loading.service";
+import { ChangeDetectionStrategy, Component, ContentChild, inject, Input, OnInit, TemplateRef } from '@angular/core';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
+import { Observable, tap } from "rxjs";
+import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from "@angular/router";
+import { XxxLoadingService } from "./xxx-loading.service";
 
 /*
 To turn off loading for certain http requests, set the context as in this example
@@ -35,11 +35,11 @@ add the attribute to the loading element as in this example
   templateUrl: './xxx-loading.component.html',
 })
 export class XxxLoadingComponent implements OnInit {
-  private loadingService: XxxLoadingService = inject(XxxLoadingService);
-  private router: Router = inject(Router);
   @ContentChild("loading") customLoadingIndicator: TemplateRef<any> | null = null;
   @Input() detectRouteTransitions = false;
   loading$: Observable<boolean>;
+  private loadingService: XxxLoadingService = inject(XxxLoadingService);
+  private router: Router = inject(Router);
 
   constructor() {
     this.loading$ = this.loadingService.loading$;

@@ -1,9 +1,9 @@
-import {inject, Injectable} from '@angular/core';
-import {Observable} from "rxjs";
-import {Store} from "@ngrx/store";
-import {XxxContentActions} from './xxx-content.actions';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+import { XxxContentActions } from './xxx-content.actions';
 import * as XxxContentSelectors from './xxx-content.selectors';
-import {XxxContent} from "./xxx-content.types";
+import { XxxContent } from "./xxx-content.types";
 
 @Injectable({
   providedIn: 'root'

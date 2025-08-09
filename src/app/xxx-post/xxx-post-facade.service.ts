@@ -1,8 +1,8 @@
-import {inject, Injectable} from '@angular/core';
-import {Observable} from "rxjs";
-import {Store} from "@ngrx/store";
-import {XxxPost} from "./xxx-post.types";
-import {XxxPostActions} from './xxx-post.actions';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+import { XxxPost } from "./xxx-post.types";
+import { XxxPostActions } from './xxx-post.actions';
 import * as XxxPostSelectors from './xxx-post.selectors';
 
 @Injectable({

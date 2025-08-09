@@ -1,4 +1,4 @@
-import {XxxContent, XxxContentState, XxxContentStatus} from "./xxx-content.types";
+import { XxxContent, XxxContentState, XxxContentStatus } from "./xxx-content.types";
 
 export const xxxGeContent = (state: XxxContentState, action: { key: string }) => {
   const contents: XxxContent[] = <XxxContent[]>JSON.parse(JSON.stringify(state.contents));

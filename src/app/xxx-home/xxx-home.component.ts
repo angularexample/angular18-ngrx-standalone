@@ -1,10 +1,10 @@
-import {AsyncPipe} from '@angular/common';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {Observable} from "rxjs";
-import {XxxContent} from "../xxx-common/xxx-content/xxx-content.types";
-import {XxxContentComponent} from '../xxx-common/xxx-content/xxx-content.component';
-import {XxxContentFacadeService} from "../xxx-common/xxx-content/xxx-content-facade.service";
-import {XxxSanitizePipe} from '../xxx-common/xxx-sanitize/xxx-sanitize.pipe';
+import { AsyncPipe } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Observable } from "rxjs";
+import { XxxContent } from "../xxx-common/xxx-content/xxx-content.types";
+import { XxxContentComponent } from '../xxx-common/xxx-content/xxx-content.component';
+import { XxxContentFacadeService } from "../xxx-common/xxx-content/xxx-content-facade.service";
+import { XxxSanitizePipe } from '../xxx-common/xxx-sanitize/xxx-sanitize.pipe';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,8 +18,8 @@ import {XxxSanitizePipe} from '../xxx-common/xxx-sanitize/xxx-sanitize.pipe';
   templateUrl: './xxx-home.component.html',
 })
 export class XxxHomeComponent {
-  private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
   contentKey = 'home';
+  private contentFacade: XxxContentFacadeService = inject(XxxContentFacadeService);
   content$: Observable<XxxContent | undefined> = this.contentFacade.contentByKey$(this.contentKey);
 
   constructor() {
