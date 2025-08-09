@@ -22,7 +22,7 @@
             <th class="xxx-table-cell-header">Title</th>
             <th class="xxx-table-cell-header">Body</th>
           </tr>
-          @for (post of posts$ | async; track post) {
+          @for (post of posts$ | async; track post.id) {
             <tr
               class="xxx-table-row"
               [class.active]="(selectedPostId$|async)===post.id"
