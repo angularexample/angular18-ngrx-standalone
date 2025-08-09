@@ -16,7 +16,6 @@ export class XxxPostDataService {
 
   updatePost(post: XxxPost): Observable<XxxPost> {
     const postUrl = `https://jsonplaceholder.typicode.com/posts/${post.id}`;
-    const body = JSON.stringify(post);
-    return this.http.put<XxxPost>(postUrl, body);
+    return this.http.put<XxxPost>(postUrl, post);
   }
 }
