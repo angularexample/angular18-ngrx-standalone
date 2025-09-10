@@ -1,8 +1,8 @@
 
 <header class="xxx-header">
   <xxx-content contentKey="{{contentKey}}"></xxx-content>
-  @if ($content(); as content) {
-    <h1>{{ (content$ | async)?.headerTitle}}</h1>
+  @if (content$ | async; as content) {
+    <h1>{{ content?.contentModel?.headerTitle}}</h1>
   }
   <div class="xxx-header-menu">
     <a class="xxx-header-menu-item" href="#"
