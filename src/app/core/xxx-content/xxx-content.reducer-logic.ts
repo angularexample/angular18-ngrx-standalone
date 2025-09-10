@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { XxxContent, XxxContentState, XxxContentStatus } from './xxx-content.types';
 import { XxxHttpUtilities } from '../xxx-utilities/xxx-http-utilities';
 
-export const xxxGeContent = (state: XxxContentState, action: { key: string }) => {
+export const getContent = (state: XxxContentState, action: { key: string }) => {
   const contents: XxxContent[] = <XxxContent[]>JSON.parse(JSON.stringify(state.contents));
   let content: XxxContent | undefined = contents.find((item: XxxContent) => item.key === action.key);
   if (content === undefined) {
@@ -21,7 +21,7 @@ export const xxxGeContent = (state: XxxContentState, action: { key: string }) =>
   }
 }
 
-export const xxxGetContentError = (state: XxxContentState, action: { key: string, err: HttpErrorResponse }) => {
+export const getContentError = (state: XxxContentState, action: { key: string, err: HttpErrorResponse }) => {
   const contents: XxxContent[] = <XxxContent[]>JSON.parse(JSON.stringify(state.contents));
   let content: XxxContent | undefined = contents.find((item: XxxContent) => item.key === action.key);
   const errorMessage: string = `Key '${action.key}'. ${XxxHttpUtilities.setErrorMessage(action.err)}`;
@@ -41,7 +41,7 @@ export const xxxGetContentError = (state: XxxContentState, action: { key: string
   }
 }
 
-export const xxxGetContentSuccess = (state: XxxContentState, action: { content: XxxContent }) => {
+export const getContentSuccess = (state: XxxContentState, action: { content: XxxContent }) => {
   const contents: XxxContent[] = <XxxContent[]>JSON.parse(JSON.stringify(state.contents));
   let content: XxxContent | undefined = contents.find((item: XxxContent) => item.key === action.content.key);
   let status: XxxContentStatus = XxxContentStatus.LOADED;

@@ -5,7 +5,7 @@ export const selectContentState = createFeatureSelector<XxxContentState>(xxxCont
 
 export const selectContents = createSelector(
   selectContentState,
-  (state: XxxContentState): XxxContent[] => state.contents
+  (state: XxxContentState): XxxContent[] => state?.contents
 )
 
 export const selectContentByKey = (key: string) => createSelector(

@@ -2,10 +2,7 @@ import { Route } from '@angular/router';
 import { XxxPostComponent } from './xxx-post.component';
 import { importProvidersFrom } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { xxxContentFeatureName } from '../../core/xxx-content/xxx-content.types';
-import { xxxContentReducer } from '../../core/xxx-content/xxx-content.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { XxxContentEffects } from '../../core/xxx-content/xxx-content.effects';
 import { xxxPostFeatureName } from './xxx-post.types';
 import { xxxPostReducer } from './xxx-post.reducer';
 import { XxxPostEffects } from './xxx-post.effects';
@@ -16,8 +13,6 @@ export const xxxPostRoutes: Route[] = [
     path: '',
     providers: [
       importProvidersFrom(
-        StoreModule.forFeature(xxxContentFeatureName, xxxContentReducer),
-        EffectsModule.forFeature([XxxContentEffects]),
         StoreModule.forFeature(xxxPostFeatureName, xxxPostReducer),
         EffectsModule.forFeature([XxxPostEffects]),
       )

@@ -1,15 +1,18 @@
-import { enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
-import { environment } from './environments/environment';
 import { AppComponent } from './app/app.component';
+import { appRoutes } from './app/app.routes';
+import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
+import { enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
+import { EffectsModule } from '@ngrx/effects';
+import { environment } from './environments/environment';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideRouter } from "@angular/router";
-import { appRoutes } from "./app/app.routes";
+import { XxxContentEffects } from './app/core/xxx-content/xxx-content.effects';
+import { xxxContentFeatureName } from './app/core/xxx-content/xxx-content.types';
+import { xxxContentReducer } from './app/core/xxx-content/xxx-content.reducer';
 
 if (environment.production) {
   enableProdMode();
@@ -21,6 +24,8 @@ bootstrapApplication(AppComponent, {
       BrowserModule,
       EffectsModule.forRoot([]),
       StoreModule.forRoot({}, {}),
+      StoreModule.forFeature(xxxContentFeatureName, xxxContentReducer),
+      EffectsModule.forFeature([XxxContentEffects]),
       StoreDevtoolsModule.instrument({
         maxAge: 25, // Retains last 25 states
         logOnly: !isDevMode(), // Restrict extension to log-only mode
@@ -29,9 +34,9 @@ bootstrapApplication(AppComponent, {
         traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
         connectInZone: true // If set to true, the connection is established within the Angular zone
       })),
-    provideAnimationsAsync(),
-    provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
+    provideAnimationsAsync(),
+    provideHttpClient(),
     provideRouter(appRoutes)
   ]
 })
