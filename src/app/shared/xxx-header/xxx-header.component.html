@@ -1,0 +1,18 @@
+
+<header class="xxx-header">
+  <xxx-content contentKey="{{contentKey}}"></xxx-content>
+  @if ($content(); as content) {
+    <h1>{{ (content$ | async)?.headerTitle}}</h1>
+  }
+  <div class="xxx-header-menu">
+    <a class="xxx-header-menu-item" href="#"
+       routerLink="/"
+    >Home</a>
+    <a class="xxx-header-menu-item" href="#"
+       routerLink="/user"
+    >Users</a>
+    <a class="xxx-header-menu-item" href="#"
+       routerLink="/post"
+    >Posts</a>
+  </div>
+</header>
