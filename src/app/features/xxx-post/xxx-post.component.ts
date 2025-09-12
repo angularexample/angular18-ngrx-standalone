@@ -28,12 +28,13 @@ export class XxxPostComponent {
   protected readonly isPostsLoading$: Observable<boolean> = this.postFacade.isPostsLoading$;
   protected readonly posts$: Observable<XxxPost[]> = this.postFacade.posts$;
   protected readonly selectedPostId$: Observable<number | undefined> = this.postFacade.selectedPostId$;
+  protected readonly selectedUserId$: Observable<number | undefined> = this.postFacade.selectedUserId$;
 
   constructor() {
-    this.postFacade.getUserPosts();
+    this.postFacade.showUserPosts();
   }
 
   protected selectPost(post: XxxPost): void {
-    this.postFacade.selectPost(post.id);
+    this.postFacade.setSelectedPost(post.id);
   }
 }

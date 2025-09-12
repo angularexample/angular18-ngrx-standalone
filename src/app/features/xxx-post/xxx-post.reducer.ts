@@ -5,12 +5,13 @@ import * as XxxPostReducerLogic from './xxx-post.reducer-logic';
 
 export const xxxPostReducer = createReducer(
   xxxPostInitialState,
-  on(XxxPostActions.getUserPosts, XxxPostReducerLogic.xxxGetUserPosts),
-  on(XxxPostActions.getUserPostsError, XxxPostReducerLogic.xxxGetUserPostsError),
-  on(XxxPostActions.getUserPostsSuccess, XxxPostReducerLogic.xxxGetUserPostsSuccess),
-  on(XxxPostActions.selectPost, XxxPostReducerLogic.xxxSelectPost),
-  on(XxxPostActions.setPostForm, XxxPostReducerLogic.xxxSetPostForm),
-  on(XxxPostActions.updatePost, XxxPostReducerLogic.xxxUpdatePost),
-  on(XxxPostActions.updatePostError, XxxPostReducerLogic.xxxUpdatePostError),
-  on(XxxPostActions.updatePostSuccess, XxxPostReducerLogic.xxxUpdatePostSuccess),
+  on(XxxPostActions.getUserPosts, XxxPostReducerLogic.getUserPosts),
+  on(XxxPostActions.getUserPostsError, XxxPostReducerLogic.getUserPostsError),
+  on(XxxPostActions.getUserPostsSuccess, XxxPostReducerLogic.getUserPostsSuccess),
+  on(XxxPostActions.setPostForm, XxxPostReducerLogic.setPostForm),
+  on(XxxPostActions.setSelectedPost, XxxPostReducerLogic.setSelectedPost),
+  on(XxxPostActions.setSelectedUser, XxxPostReducerLogic.setSelectedUser),
+  on(XxxPostActions.updatePost, XxxPostReducerLogic.updatePost),
+  on(XxxPostActions.updatePostError, XxxPostReducerLogic.updatePostError),
+  on(XxxPostActions.updatePostSuccess, XxxPostReducerLogic.updatePostSuccess),
 );

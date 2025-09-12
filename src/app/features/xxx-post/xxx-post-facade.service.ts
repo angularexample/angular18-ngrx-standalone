@@ -19,17 +19,18 @@ export class XxxPostFacadeService {
   readonly posts$: Observable<XxxPost[]> = this.store.select(XxxPostSelectors.selectPosts);
   readonly selectedPost$: Observable<XxxPost | undefined> = this.store.select(XxxPostSelectors.selectSelectedPost);
   readonly selectedPostId$: Observable<number | undefined> = this.store.select(XxxPostSelectors.selectSelectedPostId);
-
-  getUserPosts(): void {
-    this.store.dispatch(XxxPostActions.getUserPosts())
-  }
-
-  selectPost(postId: number): void {
-    this.store.dispatch(XxxPostActions.selectPost({postId}))
-  }
+  readonly selectedUserId$: Observable<number | undefined> = this.store.select(XxxPostSelectors.selectSelectedUserId);
 
   setPostForm(post: XxxPost): void {
     this.store.dispatch(XxxPostActions.setPostForm({post}))
+  }
+
+  setSelectedPost(postId: number): void {
+    this.store.dispatch(XxxPostActions.setSelectedPost({postId}))
+  }
+
+  showUserPosts(): void {
+    this.store.dispatch(XxxPostActions.showUserPosts())
   }
 
   updatePost(): void {

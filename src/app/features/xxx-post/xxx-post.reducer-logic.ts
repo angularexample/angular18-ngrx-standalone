@@ -1,6 +1,6 @@
-import { XxxPost, XxxPostState } from './xxx-post.types';
+import { XxxPost, xxxPostInitialState, XxxPostState } from './xxx-post.types';
 
-export const xxxGetUserPosts = (state: XxxPostState) => {
+export const getUserPosts = (state: XxxPostState) => {
   return {
     ...state,
     isPostsLoading: true,
@@ -8,14 +8,14 @@ export const xxxGetUserPosts = (state: XxxPostState) => {
   }
 }
 
-export const xxxGetUserPostsError = (state: XxxPostState) => {
+export const getUserPostsError = (state: XxxPostState) => {
   return {
     ...state,
     isPostsLoading: false,
   }
 }
 
-export const xxxGetUserPostsSuccess = (state: XxxPostState, action: { posts: XxxPost[] }) => {
+export const getUserPostsSuccess = (state: XxxPostState, action: { posts: XxxPost[] }) => {
   const posts: XxxPost[] = <XxxPost[]>JSON.parse(JSON.stringify(action.posts));
   return {
     ...state,
@@ -24,7 +24,7 @@ export const xxxGetUserPostsSuccess = (state: XxxPostState, action: { posts: Xxx
   }
 }
 
-export const xxxSelectPost = (state: XxxPostState, action: { postId: number }) => {
+export const setSelectedPost = (state: XxxPostState, action: { postId: number }) => {
   let newState: XxxPostState = {
     ...state
   };
@@ -35,7 +35,14 @@ export const xxxSelectPost = (state: XxxPostState, action: { postId: number }) =
   return newState;
 }
 
-export const xxxSetPostForm = (state: XxxPostState, action: { post: XxxPost }) => {
+export const setSelectedUser = (_state: XxxPostState, action: {userId: number}) => {
+  return {
+    ...xxxPostInitialState,
+    selectedUserId: action.userId,
+  }
+}
+
+export const setPostForm = (state: XxxPostState, action: { post: XxxPost }) => {
   const postForm: XxxPost = <XxxPost>JSON.parse(JSON.stringify(action.post));
   return {
     ...state,
@@ -43,21 +50,21 @@ export const xxxSetPostForm = (state: XxxPostState, action: { post: XxxPost }) =
   }
 }
 
-export const xxxUpdatePost = (state: XxxPostState) => {
+export const updatePost = (state: XxxPostState) => {
   return {
     ...state,
     isPostUpdating: true,
   }
 }
 
-export const xxxUpdatePostError = (state: XxxPostState) => {
+export const updatePostError = (state: XxxPostState) => {
   return {
     ...state,
     isPostUpdating: false,
   }
 }
 
-export const xxxUpdatePostSuccess = (state: XxxPostState) => {
+export const updatePostSuccess = (state: XxxPostState) => {
   return {
     ...state,
     isPostUpdating: false,

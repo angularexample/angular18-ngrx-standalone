@@ -30,4 +30,5 @@ export interface XxxPostState {
   postForm?: XxxPost;
   posts: XxxPost[];
   selectedPostId?: number;
+  selectedUserId?: number;
 }

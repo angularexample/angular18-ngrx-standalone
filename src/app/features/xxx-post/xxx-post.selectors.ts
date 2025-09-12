@@ -1,7 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { XxxPost, xxxPostFeatureName, XxxPostState } from './xxx-post.types';
-import * as XxxUserSelectors from '../xxx-user/xxx-user.selectors';
-import { XxxUserState } from '../xxx-user/xxx-user.types';
 
 export const selectPostState = createFeatureSelector<XxxPostState>(xxxPostFeatureName);
 
@@ -31,8 +29,8 @@ export const selectSelectedPostId = createSelector(
 )
 
 export const selectSelectedUserId = createSelector(
-  XxxUserSelectors.selectSelectedUserId,
-  (selectedUserId: number | undefined) => selectedUserId
+  selectPostState,
+  (state: XxxPostState) => state.selectedUserId
 )
 
 export const selectIsPostsEmpty = createSelector(
@@ -70,17 +68,12 @@ export const selectIsSaveButtonDisabled = createSelector(
   }
 );
 
-export const selectIsUserState = createSelector(
-  XxxUserSelectors.selectUserState,
-  (userState: XxxUserState | undefined) => !!userState
-);
-
 export const selectIsNoSelectedPost = createSelector(
   selectPostState,
   (state: XxxPostState) => state.selectedPostId === undefined
 );
 
 export const selectIsNoSelectedUser = createSelector(
-  XxxUserSelectors.selectIsNoSelectedUser,
-  (isNoSelectedUser) => isNoSelectedUser
+  selectSelectedUserId,
+  (selectedUserId) => selectedUserId === undefined
 );
