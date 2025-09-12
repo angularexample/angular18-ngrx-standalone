@@ -5,9 +5,9 @@ import * as XxxPostReducerLogic from './xxx-post.reducer-logic';
 
 export const xxxPostReducer = createReducer(
   xxxPostInitialState,
-  on(XxxPostActions.getUserPosts, XxxPostReducerLogic.getUserPosts),
-  on(XxxPostActions.getUserPostsError, XxxPostReducerLogic.getUserPostsError),
-  on(XxxPostActions.getUserPostsSuccess, XxxPostReducerLogic.getUserPostsSuccess),
+  on(XxxPostActions.getPosts, XxxPostReducerLogic.getPosts),
+  on(XxxPostActions.getPostsError, XxxPostReducerLogic.getPostsError),
+  on(XxxPostActions.getPostsSuccess, XxxPostReducerLogic.getPostsSuccess),
   on(XxxPostActions.setPostForm, XxxPostReducerLogic.setPostForm),
   on(XxxPostActions.setSelectedPost, XxxPostReducerLogic.setSelectedPost),
   on(XxxPostActions.setSelectedUser, XxxPostReducerLogic.setSelectedUser),

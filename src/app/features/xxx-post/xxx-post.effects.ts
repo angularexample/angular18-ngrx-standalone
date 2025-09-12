@@ -19,26 +19,26 @@ export class XxxPostEffects {
   private xxxAlertService: XxxAlertService = inject(XxxAlertService);
   private xxxPostDataService: XxxPostDataService = inject(XxxPostDataService);
 
-  getUserPosts$ = createEffect(() =>
+  getPosts$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(XxxPostActions.getUserPosts),
+      ofType(XxxPostActions.getPosts),
       concatLatestFrom(() => this.store.select(XxxPostSelectors.selectSelectedUserId)),
       map(([_arg1, arg2]) => arg2),
       filter((userId: number | undefined) => userId !== undefined),
       switchMap((userId: number | undefined) => {
         if (userId !== undefined) {
-          return this.xxxPostDataService.getUserPosts(userId).pipe(
-            map((posts: XxxPost[]) => XxxPostActions.getUserPostsSuccess({posts})),
-            catchError(() => of(XxxPostActions.getUserPostsError()))
+          return this.xxxPostDataService.getPosts(userId).pipe(
+            map((posts: XxxPost[]) => XxxPostActions.getPostsSuccess({posts})),
+            catchError(() => of(XxxPostActions.getPostsError()))
           )
         } else {
-          return of(XxxPostActions.getUserPostsError())
+          return of(XxxPostActions.getPostsError())
         }
       })
     ));
 
-  getUserPostsError$ = createEffect(() => this.actions$.pipe(
-      ofType(XxxPostActions.getUserPostsError),
+  getPostsError$ = createEffect(() => this.actions$.pipe(
+      ofType(XxxPostActions.getPostsError),
       tap(() => {
         this.xxxAlertService.showError('Error occurred getting posts');
       })
@@ -55,7 +55,7 @@ export class XxxPostEffects {
 
   setSelectedUser$ = createEffect(() => this.actions$.pipe(
       ofType(XxxPostActions.setSelectedUser),
-      map(() => XxxPostActions.getUserPosts())
+      map(() => XxxPostActions.getPosts())
     )
   );
 
@@ -65,8 +65,8 @@ export class XxxPostEffects {
   // 2. If the user ids in each state are different,
   //    then set the user id in the Post state to the selected user id
   // 3. In any other case, then get the user posts
-  showUserPosts$ = createEffect(() => this.actions$.pipe(
-      ofType(XxxPostActions.showUserPosts),
+  showPosts$ = createEffect(() => this.actions$.pipe(
+      ofType(XxxPostActions.showPosts),
       concatLatestFrom(() => [
           this.store.select(XxxPostSelectors.selectIsPostsLoaded),
           this.store.select(XxxPostSelectors.selectSelectedUserId),
@@ -81,7 +81,7 @@ export class XxxPostEffects {
           return XxxPostActions.setSelectedUser({userId: userUserId})
             ;
         }
-        return XxxPostActions.getUserPosts()
+        return XxxPostActions.getPosts()
       })
     )
   );

@@ -9,7 +9,7 @@ import { XxxPost } from './xxx-post.types';
 export class XxxPostDataService {
   private http: HttpClient = inject(HttpClient);
 
-  getUserPosts(userId: number): Observable<XxxPost[]> {
+  getPosts(userId: number): Observable<XxxPost[]> {
     const postUrl = `https://jsonplaceholder.typicode.com/posts?userId=${userId}`;
     return this.http.get<XxxPost[]>(postUrl);
   }

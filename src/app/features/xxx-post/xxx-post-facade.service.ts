@@ -30,7 +30,7 @@ export class XxxPostFacadeService {
   }
 
   showUserPosts(): void {
-    this.store.dispatch(XxxPostActions.showUserPosts())
+    this.store.dispatch(XxxPostActions.showPosts())
   }
 
   updatePost(): void {

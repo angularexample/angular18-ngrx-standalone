@@ -1,6 +1,6 @@
 import { XxxPost, xxxPostInitialState, XxxPostState } from './xxx-post.types';
 
-export const getUserPosts = (state: XxxPostState) => {
+export const getPosts = (state: XxxPostState) => {
   return {
     ...state,
     isPostsLoading: true,
@@ -8,14 +8,14 @@ export const getUserPosts = (state: XxxPostState) => {
   }
 }
 
-export const getUserPostsError = (state: XxxPostState) => {
+export const getPostsError = (state: XxxPostState) => {
   return {
     ...state,
     isPostsLoading: false,
   }
 }
 
-export const getUserPostsSuccess = (state: XxxPostState, action: { posts: XxxPost[] }) => {
+export const getPostsSuccess = (state: XxxPostState, action: { posts: XxxPost[] }) => {
   const posts: XxxPost[] = <XxxPost[]>JSON.parse(JSON.stringify(action.posts));
   return {
     ...state,
