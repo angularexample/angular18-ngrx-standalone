@@ -115,6 +115,7 @@ export class XxxPostEffects {
       ofType(XxxPostActions.updatePostSuccess),
       tap(() => {
         this.xxxAlertService.showInfo('Successfully updated post');
+        void this.router.navigateByUrl('/post')
       })
     ), {dispatch: false}
   );
