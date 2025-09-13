@@ -64,9 +64,15 @@ export const updatePostError = (state: XxxPostState) => {
   }
 }
 
-export const updatePostSuccess = (state: XxxPostState) => {
+export const updatePostSuccess = (state: XxxPostState, action: {postResponse: XxxPost}) => {
+  // remove the old post, add the new one, sort by id
+  let posts= state.posts.filter(item => item.id !== action.postResponse.id);
+  const updatedPost: XxxPost = {...action.postResponse};
+  posts.push(updatedPost);
+  posts.sort((a: XxxPost, b: XxxPost) => a.id - b.id);
   return {
     ...state,
     isPostUpdating: false,
+    posts
   }
 }

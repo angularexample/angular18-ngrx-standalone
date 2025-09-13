@@ -5,7 +5,7 @@ import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { XxxAlertService } from '../../core/xxx-alert/xxx-alert.service';
-import { XxxPost, XxxPostResponse } from './xxx-post.types';
+import { XxxPost } from './xxx-post.types';
 import { XxxPostActions } from './xxx-post.actions';
 import { XxxPostDataService } from './xxx-post-data.service';
 import * as XxxPostSelectors from './xxx-post.selectors';
@@ -86,6 +86,23 @@ export class XxxPostEffects {
     )
   );
 
+  updatePosts$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(XxxPostActions.updatePost),
+      concatLatestFrom(() => this.store.select(XxxPostSelectors.selectPostForm)),
+      map(([_arg1, arg2]) => arg2),
+      switchMap((post: XxxPost | undefined) => {
+        if (post !== undefined) {
+          return this.xxxPostDataService.updatePost(post).pipe(
+            map((postResponse: XxxPost) => XxxPostActions.updatePostSuccess({postResponse})),
+            catchError(() => of(XxxPostActions.updatePostError()))
+          )
+        } else {
+          return of(XxxPostActions.updatePostError())
+        }
+      })
+    ));
+
   updatePostError$ = createEffect(() => this.actions$.pipe(
       ofType(XxxPostActions.updatePostError),
       tap(() => {
@@ -98,25 +115,7 @@ export class XxxPostEffects {
       ofType(XxxPostActions.updatePostSuccess),
       tap(() => {
         this.xxxAlertService.showInfo('Successfully updated post');
-        void this.router.navigateByUrl('/post')
       })
     ), {dispatch: false}
   );
-
-  updatePosts$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(XxxPostActions.updatePost),
-      concatLatestFrom(() => this.store.select(XxxPostSelectors.selectPostForm)),
-      map(([_arg1, arg2]) => arg2),
-      switchMap((post: XxxPost | undefined) => {
-        if (post !== undefined) {
-          return this.xxxPostDataService.updatePost(post).pipe(
-            map((postResponse: XxxPostResponse) => XxxPostActions.updatePostSuccess({postResponse})),
-            catchError(() => of(XxxPostActions.updatePostError()))
-          )
-        } else {
-          return of(XxxPostActions.updatePostError())
-        }
-      })
-    ));
 }

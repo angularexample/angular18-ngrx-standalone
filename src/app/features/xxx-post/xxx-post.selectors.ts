@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { isPostsEqual } from './xxx-post-utilities';
 import { XxxPost, xxxPostFeatureName, XxxPostState } from './xxx-post.types';
 
 export const selectPostState = createFeatureSelector<XxxPostState>(xxxPostFeatureName);
@@ -63,7 +64,7 @@ export const selectIsSaveButtonDisabled = createSelector(
   selectSelectedPost,
   selectPostForm,
   (isPostUpdating: boolean, isPostsLoaded: boolean, selectedPost: XxxPost | undefined, postForm: XxxPost | undefined) => {
-    const isPostFormEqual: boolean = JSON.stringify(selectedPost) === JSON.stringify(postForm);
+    const isPostFormEqual: boolean = isPostsEqual(selectedPost, postForm);
     return isPostUpdating || !isPostsLoaded || (selectedPost === undefined) || (postForm === undefined) || isPostFormEqual;
   }
 );
