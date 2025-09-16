@@ -31,6 +31,7 @@ export const setSelectedPost = (state: XxxPostState, action: { postId: number })
   // make sure the selected post exists
   if (state.posts.some((item: XxxPost): boolean => item.id === action.postId)) {
     newState.selectedPostId = action.postId
+    newState.postForm = undefined;
   }
   return newState;
 }
